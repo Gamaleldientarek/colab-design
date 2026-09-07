@@ -1,0 +1,22 @@
+{
+  "name": "colab-design",
+  "version": "4.2.2",
+  "description": "The Colab design system. Palette with verified contrast rules, type scale, the 8-column slide grid, 14 layout archetypes, the pixel and dither graphic language, the four-ground token system, EN/AR build rules.",
+  "author": {
+    "name": "Gamal Eldien",
+    "url": "https://gamaleldien.com"
+  },
+  "homepage": "https://github.com/Gamaleldientarek/colab-design",
+  "repository": "https://github.com/Gamaleldientarek/colab-design",
+  "license": "UNLICENSED",
+  "keywords": [
+    "design-system",
+    "brand",
+    "figma",
+    "design-tokens",
+    "azmx"
+  ],
+  "skills": [
+    "./"
+  ]
+}
