@@ -17,7 +17,7 @@ npx skills@latest add Gamaleldientarek/colab-design -g -a claude-code -y
 ```
 
 
-Needs [Node.js](https://nodejs.org). Restart Claude Code afterwards. Invoke with `/colab-design`, or just mention Colab, Electric Green, the pixel motif, or the Advanced Presentation grid and it activates on its own. Using Cursor, Codex or another agent: drop `-a claude-code`. Step-by-step guide for non-technical people: [INSTALL.md](https://github.com/Gamaleldientarek/azmx/blob/main/INSTALL.md).
+Needs [Node.js](https://nodejs.org). Restart Claude Code afterwards. Invoke with `/colab-design`, or just mention Colab, Electric Green, the pixel motif, or the Advanced Presentation grid and it activates on its own. Cursor, Codex or Copilot: same command with `-a cursor`, `-a codex` or `-a github-copilot`. Every tool on the machine at once: `-a '*'`. Step-by-step guide for non-technical people: [INSTALL.md](https://github.com/Gamaleldientarek/azmx/blob/main/INSTALL.md).
 
 ---
 
