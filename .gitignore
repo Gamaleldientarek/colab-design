@@ -9,3 +9,11 @@ __pycache__/
 *.tgz
 /package/
 package-lock.json
+
+# Local credentials and private configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.secrets/

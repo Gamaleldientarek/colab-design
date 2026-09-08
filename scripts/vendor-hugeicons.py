@@ -26,6 +26,7 @@ download step only; no node_modules is created in the repo.
 Run scripts/rebuild-icon-index.py afterwards to regenerate the index.
 """
 import os
+from pathlib import PurePosixPath
 import re
 import shutil
 import subprocess
@@ -98,12 +99,31 @@ def to_kebab(export_name):
     return n.lower()
 
 
+def extract_package(tf, workdir):
+    """Fail closed on unsupported Python and unsafe npm archive members."""
+    if not hasattr(tarfile, "data_filter"):
+        raise RuntimeError("Safe extraction requires Python with tarfile.data_filter; upgrade Python.")
+    members = tf.getmembers()
+    if len(members) > 50000 or sum(m.size for m in members) > 256 * 1024 * 1024:
+        raise ValueError("Package archive exceeds extraction limits.")
+    for member in members:
+        path = PurePosixPath(member.name)
+        if (path.is_absolute() or ".." in path.parts or not path.parts
+                or path.parts[0] != "package" or "\\" in member.name
+                or not (member.isfile() or member.isdir())):
+            raise ValueError("Unsafe package archive member: %r" % member.name)
+        tarfile.data_filter(member, workdir)
+    tf.extractall(workdir, members=members, filter="data")
+
+
 def fetch(version, workdir):
     """npm pack the pinned version into workdir and return the extracted package dir."""
+    if not re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", version):
+        raise ValueError("Use an exact numeric package version, such as 4.2.3.")
     spec = "@hugeicons/core-free-icons@%s" % version
     print("Downloading %s" % spec)
     try:
-        subprocess.run(["npm", "pack", spec], cwd=workdir, check=True,
+        subprocess.run(["npm", "pack", "--ignore-scripts", spec], cwd=workdir, check=True,
                        stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
     except FileNotFoundError:
         sys.exit("npm is required on PATH to download the package.")
@@ -113,10 +133,7 @@ def fetch(version, workdir):
     if not tgz:
         sys.exit("npm pack produced no tarball.")
     with tarfile.open(os.path.join(workdir, tgz[0])) as tf:
-        try:
-            tf.extractall(workdir, filter="data")
-        except TypeError:  # Python < 3.12
-            tf.extractall(workdir)
+        extract_package(tf, workdir)
     esm = os.path.join(workdir, "package", "dist", "esm")
     if not os.path.isdir(esm):
         sys.exit("Unexpected package layout: %s missing." % esm)

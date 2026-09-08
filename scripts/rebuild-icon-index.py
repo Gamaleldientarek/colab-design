@@ -20,7 +20,7 @@ ICONS = os.path.join(ROOT, "assets", "icons")
 REFS = os.path.join(ROOT, "references")
 SHARDS = os.path.join(REFS, "icon-index")
 RAW = ("https://raw.githubusercontent.com/Gamaleldientarek/"
-       "colab-design-skill/main/assets/icons")
+       "colab-design/main/assets/icons")
 
 SHARD_MAX = 450
 
