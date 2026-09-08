@@ -12,12 +12,17 @@ Colab is a bilingual English/Arabic **User Experience Research Lab** operating i
 
 ## Install
 
+Run these commands from the project where you will use the skill. They install the reviewed design snapshot for this project only, without running a third-party installer:
+
 ```bash
-npx skills@latest add Gamaleldientarek/colab-design -g -a claude-code -y
+mkdir -p .claude/skills
+git clone --no-checkout https://github.com/Gamaleldientarek/colab-design.git .claude/skills/colab-design
+git -C .claude/skills/colab-design checkout --detach 20ffe419f8d7cf3a47c695b3de96996447fd86c5
 ```
 
+Needs Git. Stop if any command fails. If the destination already exists, follow the update guidance below instead of overwriting it. Restart Claude Code, then invoke `/colab-design`. The snapshot contains the design rules and ready-to-use assets; normal use does not require running the maintenance scripts.
 
-Needs [Node.js](https://nodejs.org). Restart Claude Code afterwards. Invoke with `/colab-design`, or just mention Colab, Electric Green, the pixel motif, or the Advanced Presentation grid and it activates on its own. Cursor, Codex or Copilot: same command with `-a cursor`, `-a codex` or `-a github-copilot`. Every tool on the machine at once: `-a '*'`. Step-by-step guide for non-technical people: [INSTALL.md](https://github.com/Gamaleldientarek/azmx/blob/main/INSTALL.md).
+For Codex, use `.agents/skills` in place of `.claude/skills` in all three commands. Keep your agent's normal permission prompts enabled. See [SECURITY.md](SECURITY.md) for the trust and maintenance boundaries.
 
 ---
 
@@ -99,21 +104,13 @@ Ratios are computed with the WCAG 2.x relative-luminance formula, not estimated.
 
 ## Updating the skill
 
-### Install or update
+### Reviewed updates
 
-```bash
-# first install
-npx skills@latest add Gamaleldientarek/colab-design -g -a claude-code -y
+The install above deliberately stays on an exact commit. It does not follow `main` or automatically update other skills.
 
-# update to the latest release
-npx skills@latest update -g
+A maintainer should review changes and supply a new full commit ID before the team updates. Fetch the repository, inspect the difference from the installed commit to that approved commit, and check out that exact commit in detached mode. Preserve local changes first. Restart the agent after updating.
 
-# pin to a specific release: clone, check out its tag, install from the local path
-git clone https://github.com/Gamaleldientarek/colab-design.git && cd colab-design && git checkout v4.2.2
-npx skills@latest add "$PWD" -g -a claude-code -y
-```
-
-Claude Code discovers the skill automatically after a restart.
+The pinned snapshot includes the hardened maintenance scripts. Normal design use still requires only the bundled rules and assets.
 
 ### Where new knowledge goes
 
