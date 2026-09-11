@@ -10,7 +10,7 @@ Read access is sufficient for skill users. Reserve write access for maintainers.
 
 ## Maintainers
 
-Keep secret scanning and push protection enabled. Protect main with pull requests and one approving review, dismiss stale approvals, require conversation resolution, and block force pushes and branch deletion. Any owner override should be exceptional and independently checked. Protect release tags from movement or deletion.
+Keep secret scanning and push protection enabled. Protect main with pull requests, dismiss stale approvals, require conversation resolution, and block force pushes and branch deletion. Required approvals are zero on purpose: there is one maintainer, and an author cannot approve their own pull request. Any owner override should be exceptional and independently checked. Protect release tags from movement or deletion.
 
 Run `python3 -m unittest discover -s tests -v` before publishing security changes. Icon regeneration requires a patched Python with `tarfile.data_filter` support. Archive extraction rejects traversal, links, special files and oversized payloads, and never falls back to unfiltered extraction. Use an exact npm package version; lifecycle scripts are disabled for the download.
 
