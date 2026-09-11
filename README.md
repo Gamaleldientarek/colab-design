@@ -12,7 +12,13 @@ Colab is a bilingual English/Arabic **User Experience Research Lab** operating i
 
 ## Install
 
-Run these commands from the project where you will use the skill. They install the reviewed design snapshot for this project only, without running a third-party installer:
+```bash
+npx skills@latest add Gamaleldientarek/colab-design -g -a claude-code -y
+```
+
+Needs [Node.js](https://nodejs.org). Restart Claude Code; the skill loads on its own for anything Colab-branded, or call it with `/colab-design`. For Cursor, Codex or Copilot use `-a cursor`, `-a codex` or `-a github-copilot` (`-a '*'` for every tool). Update later with `npx skills@latest update -g`. Step-by-step without a terminal: [INSTALL.md](https://github.com/Gamaleldientarek/azmx/blob/main/INSTALL.md).
+
+**Pinned install, without the skills CLI.** For a project that must stay on a reviewed commit, clone that commit into the project instead:
 
 ```bash
 mkdir -p .claude/skills
@@ -20,9 +26,7 @@ git clone --no-checkout https://github.com/Gamaleldientarek/colab-design.git .cl
 git -C .claude/skills/colab-design checkout --detach 20ffe419f8d7cf3a47c695b3de96996447fd86c5
 ```
 
-Needs Git. Stop if any command fails. If the destination already exists, follow the update guidance below instead of overwriting it. Restart Claude Code, then invoke `/colab-design`. The snapshot contains the design rules and ready-to-use assets; normal use does not require running the maintenance scripts.
-
-For Codex, use `.agents/skills` in place of `.claude/skills` in all three commands. Keep your agent's normal permission prompts enabled. See [SECURITY.md](SECURITY.md) for the trust and maintenance boundaries.
+Needs Git. Stop if any command fails, and do not overwrite an existing folder. For Codex, use `.agents/skills` in place of `.claude/skills`. Keep your agent's normal permission prompts enabled. See [SECURITY.md](SECURITY.md) for the trust and maintenance boundaries.
 
 ---
 
@@ -104,11 +108,11 @@ Ratios are computed with the WCAG 2.x relative-luminance formula, not estimated.
 
 ## Updating the skill
 
-### Reviewed updates
+### Updates
 
-The install above deliberately stays on an exact commit. It does not follow `main` or automatically update other skills.
+With the skills CLI, `npx skills@latest update -g` brings every installed skill to the latest `main`. Restart the agent afterwards.
 
-A maintainer should review changes and supply a new full commit ID before the team updates. Fetch the repository, inspect the difference from the installed commit to that approved commit, and check out that exact commit in detached mode. Preserve local changes first. Restart the agent after updating.
+A pinned install stays on its exact commit and never updates on its own. A maintainer reviews the changes and supplies the new full commit ID; fetch the repository, inspect the difference from the installed commit to the approved one, and check out that exact commit in detached mode. Preserve local changes first. Restart the agent after updating.
 
 The pinned snapshot includes the hardened maintenance scripts. Normal design use still requires only the bundled rules and assets.
 

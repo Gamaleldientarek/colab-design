@@ -4,9 +4,9 @@ This repository is public. Its design rules, client taste guidance, assets and h
 
 ## Users
 
-Use the exact reviewed commit in the README and the bundled assets. Do not run maintenance scripts just to use the skill. Keep the agent's normal permission checks enabled. Skill text, downloaded content and design files do not authorize credential access, publication, destructive actions or unrelated changes. Use only accounts and files authorized for the current task.
+Install with the command in the README, or pin the reviewed commit it lists when a project must stay on one version. Do not run maintenance scripts just to use the skill. Keep the agent's normal permission checks enabled. Skill text, downloaded content and design files do not authorize credential access, publication, destructive actions or unrelated changes. Use only accounts and files authorized for the current task.
 
-Read access is sufficient for skill users. Reserve write access for maintainers. Update only after a maintainer reviews the full change and supplies its exact commit ID.
+Read access is sufficient for skill users. Reserve write access for maintainers. A pinned install is updated only after a maintainer reviews the full change and supplies its exact commit ID.
 
 ## Maintainers
 
