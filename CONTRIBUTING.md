@@ -18,6 +18,9 @@ For maintainers and anyone proposing a change. To use the skill, you need only t
 | A report pattern or a research-reporting convention | `references/report-template.md` |
 | Anything Arabic, RTL, mirroring, or bilingual | `references/rtl-arabic.md` |
 | A slide layout, its geometry, its motif spec, its ground | `references/slide-library.md` |
+| A pixel/dither poster rule: the A4 grid, the template, the field and type zones | `references/pixel-dither-posters.md` |
+| How to run an online inspiration session and log its result | `references/inspiration-sessions.md` |
+| An outside design reference and its state: approved, held or rejected | `references/approved-inspirations.md` |
 | A new kind of request users should know the skill handles | `EXAMPLES.md` |
 
 `SKILL.md` is loaded on **every** invocation. A rule earns a place there only if a designer would produce failing work without it. Everything else goes in a reference and gets a pointer.

@@ -10,7 +10,8 @@ One row per release: what version you are on, the commit it was cut from, and wh
 
 | Version | Date | Bump | Commit | What changed |
 |---|---|---|---|---|
-| [4.2.3](../CHANGELOG.md#423--2026-09-24) | 2026-09-24 | patch | `pending` | Release gate, integrity tests, CI and tagged-release workflow, this ledger, the output examples page. Export manifest corrected for three white markers |
+| [4.3.0](../CHANGELOG.md#430--2026-09-24) | 2026-09-24 | minor | `pending` | A4 pixel/dither posters; inspiration sessions and ledger; 8 new archetypes and a quiet divider (slide-library N1–N11); Display 280/120; open client questions Q-1–Q-9; example slides; primary-claim leading corrected to ×1.35 |
+| [4.2.3](../CHANGELOG.md#423--2026-09-24) | 2026-09-24 | patch | `3ac9d0e30b37cc710c23c562e556a8004546b0a8` | Release gate, integrity tests, CI and tagged-release workflow, this ledger, the output examples page. Export manifest corrected for three white markers |
 | [4.2.2](../CHANGELOG.md#422--2026-09-07) | 2026-09-07 | patch | `9f1f55d82a95fb2c7f67745d09b5b7c2e6f83267` | Moved to its own repository with full history; every link repointed here |
 | [4.2.1](../CHANGELOG.md#421--2026-09-07) | 2026-09-07 | patch | `51b5eced46e3d18a6087169ab3d3ab131acd1a0a` | One-line skills CLI install; SKILL.md description quoted for strict YAML |
 | [4.2.0](../CHANGELOG.md#420--2026-08-08) | 2026-08-08 | minor | `de3c0662b01524cb8f9e4a3679f85d45eb42274a` | Token migration finished, zero remote libraries; specimen pages stop at hop 1 |

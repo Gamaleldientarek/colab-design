@@ -1,6 +1,6 @@
 # What you get: output examples
 
-Seven requests a designer or an agent sends every week, and what comes back once the skill is installed. The answers are shortened, and the wording varies from run to run. The numbers do not vary, because every one comes from the skill's references: contrast is computed with the WCAG 2.x formula, and geometry comes from the measured Figma grid.
+Eight requests a designer or an agent sends every week, and what comes back once the skill is installed. The answers are shortened, and the wording varies from run to run. The numbers do not vary, because every one comes from the skill's references: contrast is computed with the WCAG 2.x formula, and geometry comes from the measured Figma grid.
 
 Without the skill, an agent answers these from general design taste. With it, the agent answers from Colab's own rules and shows the measurement behind each one.
 
@@ -13,6 +13,7 @@ Without the skill, an agent answers these from general design taste. With it, th
 | 5 | [An Arabic version](#5-an-arabic-version) | The mirror transform, re-fitted rhythm, and bidi traps |
 | 6 | [An icon](#6-an-icon) | The exact Hugeicons name, size, stroke, colour, and file |
 | 7 | [A slide review](#7-a-slide-review) | Numbered violations with the rule each one breaks |
+| 8 | [A dither A4 poster](#8-a-dither-a4-poster) | The A4 grid, the fixed template, the field/type-zone split, and the EN/AR mirror |
 
 ## Example slides
 
@@ -158,9 +159,29 @@ The assets it works with are real files in this repository:
 > 1. **Electric Green bar on the white chart.** 1.34 : 1. Recolour the series to Pine Green, or move the slide to the `Dark` ground.
 > 2. **Title top at y 176.** Running slides anchor the title at **y 168** with 0 px deviation.
 > 3. **Five bullets.** The list cap is three. Readers take bullets 1 and 2 and rarely reach 4. Keep the governing sentence and the top two points.
-> 4. **Dither field under the headline.** The motif never sits beneath a text bounding box. Move it to the C8 edge or remove it. This is a content slide, so the target coverage is 0%.
+> 4. **Dither field under the headline.** The motif never sits beneath a text bounding box. Move it to the C8 edge or remove it. This is a content slide, so the target coverage is 0% (the content-slide ceiling is open: `references/decision-law.md` Q-9).
 >
 > Passes: grid alignment, footer band, type bound to styles.
+
+## 8. A dither A4 poster
+
+> **Prompt:** Design an A4 dither poster announcing the new report. Dither field, Electric on Pine.
+
+> **Output:**
+> **The fixed A4 poster template**, not a resized slide. Canvas **2480 × 3508px at 300dpi**, 20px module — the same atom as the slide grid, at a different canvas.
+>
+> | Element | Spec |
+> |---|---|
+> | Margins (L/T/R/B) | 120 / 160 / 120 / 240px. Live area **2240 × 3100px**, top-left at (120, 160) |
+> | Columns | 6 × 340px, 40px gutters — `6×340 + 5×40 = 2240`, exact |
+> | Field zone | Top-right anchor (EN). Dense corner top-right, sparse toward the field zone's inner edge |
+> | Field construction | Per-cell `hash2(x,y) < p(u)` test, never a blurred gradient. `p(u) = 0.70·u²`, `base = 0` for a band that must dissolve rather than terminate in a hard line |
+> | Grid extension | Sample density against a grid extended 20–50% past the canvas's top and right edges before cropping — keeps the visible edge reading as still-climbing, not capped |
+> | Field ink | Electric Green `#34FF67`, ≥50% opacity — the floor on Pine is 50% (2.85:1 at 40% fails, 3.62:1 at 50% clears) |
+> | Type zone | Reserved band below the field zone, full live width, 40px clear air from the field's lowest occupied cell. Headline left-aligned, never centred |
+> | Template rule | One fixed template, reused: only the field placement, the headline, and one accent marker (`+`/`×`/`o`) vary between posters. Grid, zoning, and logo position hold |
+>
+> For the Arabic version: mirror `x' = 2480 − x − w` (C1↔C6, C2↔C5, C3↔C4), field moves to the top-left, type zone re-aligns right — but re-solve the field against the Arabic headline's final geometry, never mirror it directly. Full mechanics: `references/pixel-dither-posters.md`.
 
 ---
 

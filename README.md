@@ -48,8 +48,8 @@ Stop if any command fails, and do not overwrite an existing folder. For Codex, u
 
 - **Colour and tokens:** full palette with computed WCAG ratios, four grounds as Figma variable modes ([colors](references/colors.md), [tokens](references/token-system.md))
 - **Type and grid:** Inter and Alexandria, 1920×1080 on 8 columns, fixed vertical anchors ([layouts](references/layout-archetypes.md), [technique](references/editorial-technique.md))
-- **Layouts:** 14 archetypes and 36 measured slides ([slide library](references/slide-library.md), [report template](references/report-template.md))
-- **Motif:** the 20 px pixel and dither field ([layouts §4](references/layout-archetypes.md))
+- **Layouts:** 22 archetypes and 36 measured slides ([slide library](references/slide-library.md), [report template](references/report-template.md))
+- **Motif:** the 20 px pixel and dither field, kept to the edges and never under text ([layouts §4](references/layout-archetypes.md))
 - **Arabic / RTL:** mirroring, auto-layout, bidi and verification ([rtl-arabic](references/rtl-arabic.md))
 - **Icons and assets:** Hugeicons Stroke Rounded, logos and shapes ([icons](references/icons.md), [logo and shapes](references/logo-and-shapes.md))
 - **Client law:** standing decisions C-01 to C-17 ([decision law](references/decision-law.md))
