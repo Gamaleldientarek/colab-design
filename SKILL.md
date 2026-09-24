@@ -165,7 +165,7 @@ A density field of squares that migrates sparse → dense toward a canvas edge. 
 | 2× module | **40px** — equals the gutter |
 | Direction | Always toward an **edge or corner, never the centre** |
 | Span | ≤3 columns (540px) from sparse to dense. Longer reads as texture, not assembly |
-| Coverage | **0% on content slides** — decorative motif appears on statement slides (cover, dividers, closing) and counted fields only. Covers and dividers may run 60–100% (open: decision-law Q-9) |
+| Coverage | **Content slides: open, decision-law Q-9** (this file says 0%, `layout-archetypes.md` says ≤20%; until ruled, keep any content-slide field shallow, at an edge, never under text or in a chart). Statement slides (cover, dividers, closing) and counted fields carry the motif; covers and dividers may run 60–100% |
 | Never under text | The field occupies a bounded zone that never underlaps a text bounding box, even at low density |
 | Markers `+ × o` | At cell intersections only, ~1 per 8–12 plain modules, never adjacent to each other |
 | Colour | **One colour per instance.** Never two accent hues inside the motif |
