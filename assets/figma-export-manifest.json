@@ -300,10 +300,8 @@
     "variant": "Shape=Marker / Plus, Colour=White",
     "w": 72,
     "h": 72,
-    "bytes": 256,
-    "hexes": [
-      "#D9D9D9"
-    ],
+    "bytes": 254,
+    "hexes": [],
     "opacity": false
   },
   {
@@ -325,10 +323,8 @@
     "variant": "Shape=Marker / Cross, Colour=White",
     "w": 72,
     "h": 72,
-    "bytes": 352,
-    "hexes": [
-      "#D9D9D9"
-    ],
+    "bytes": 350,
+    "hexes": [],
     "opacity": false
   },
   {
@@ -350,10 +346,8 @@
     "variant": "Shape=Marker / Ring, Colour=White",
     "w": 72,
     "h": 72,
-    "bytes": 563,
-    "hexes": [
-      "#D9D9D9"
-    ],
+    "bytes": 561,
+    "hexes": [],
     "opacity": false
   },
   {

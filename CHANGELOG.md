@@ -1,5 +1,32 @@
 # Changelog
 
+## 4.2.3 — 2026-09-24
+
+Patch. Release control, release history, tests, and a reorganised README. One ratio corrected; no design rule changes.
+
+### Added
+- **`scripts/release-check.py`, the release gate.** The version lives only in `.claude-plugin/plugin.json`. The gate fails when the newest CHANGELOG heading names a different version, when changelog versions repeat or run out of order, when the `SKILL.md` name drifts from the plugin name or its description passes the 1,024-character limit, when the README pin is not an ancestor of `HEAD`, or when a release tag does not equal `v` plus the version. `--notes vX.Y.Z` prints one release's changelog section
+- **`tests/test_repo_integrity.py`.** Relative links and backticked repo paths resolve, README and SKILL counts match disk (21 logos, 40 shapes, 5,437 icons), the committed icon index is byte-identical to a fresh `rebuild-icon-index.py` run, every SVG parses with no script, event handler, external link or entity declaration, the export manifest matches every logo and shape file, and no credential pattern appears in a text file
+- **`references/release-history.md`**, the release ledger: one row per release since 0.1.0 with its date, bump, full commit ID and a one-line summary. The gate fails when a changelog version has no row, a date or bump disagrees, an older row is left `pending`, or a tag points at a different commit. `SKILL.md` now carries `metadata.version` and tells the agent to read the ledger before reusing work built on an older major
+- **`EXAMPLES.md`**: seven requests with the output the skill produces, so a reader knows what to expect before installing
+- **`CONTRIBUTING.md`**: where new knowledge goes, evidence marks, versioning, the release checklist and asset regeneration, moved out of the README
+- **Contrast regression tests**: every ratio in the verified table of `references/colors.md`, every quoted `#hex on #hex` pair, and every text-on-Electric-flood ratio is recomputed with the WCAG formula
+- **`tests/test_release_check.py`** covers each way the gate can fail
+- **CI** (`.github/workflows/ci.yml`) runs the tests and the gate on every pull request and every push to `main`. **Release** (`.github/workflows/release.yml`) runs on a `vX.Y.Z` tag, refuses a tag that is not on `main` or does not match the version, and publishes the GitHub release with the changelog section as its notes. Actions are pinned to full commit IDs, and Dependabot proposes updates monthly
+
+### Corrected
+- **Deep Jade text on an Electric Green flood is 13.07 : 1, not 13.91 : 1.** Contrast is symmetric, and the colour table already measured `#34FF67` on `#011E14` at 13.07. The wrong figure appeared in `SKILL.md`, `references/colors.md`, `references/research-notes.md` and `references/editorial-technique.md`, and every instance is replaced. The rule does not change: Deep Jade is still the best text on an Electric flood, ahead of Pine at 9.49
+
+- `README.md`: Arabic leading was attributed to the AR mode of the `numbers` collection, which was deleted on 2026-08-08. It comes from the AR mode of `04 Typography`
+- `README.md`: the motif was allowed "≤20% canvas coverage on content slides". Content slides take **0%**; ≤20% is the ceiling for a flood divider
+
+### Changed
+- `README.md` rewritten for someone deciding whether to install: install and tool flags first, a link to the examples, one table of what the skill knows, and the repository map folded away. Maintainer material moved to `CONTRIBUTING.md`
+
+### Fixed
+- `assets/figma-export-manifest.json`: `shape-marker-plus-white`, `shape-marker-cross-white` and `shape-marker-ring-white` were recorded as `#D9D9D9` at 256, 352 and 563 bytes. The files were corrected to `white` after export and are 254, 350 and 561 bytes. The manifest now matches, so an export can again be verified against it
+- `references/decision-law.md`: a backticked path to `slide-anchors` named a file that does not exist. It now points at the material it meant, in `references/layout-archetypes.md` §0.5
+
 ## 4.2.2 — 2026-09-07
 
 Patch. Distribution only.

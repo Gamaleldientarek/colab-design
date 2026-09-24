@@ -12,7 +12,7 @@ Read access is sufficient for skill users. Reserve write access for maintainers.
 
 Keep secret scanning and push protection enabled. Protect main with pull requests, dismiss stale approvals, require conversation resolution, and block force pushes and branch deletion. Required approvals are zero on purpose: there is one maintainer, and an author cannot approve their own pull request. Any owner override should be exceptional and independently checked. Protect release tags from movement or deletion.
 
-Run `python3 -m unittest discover -s tests -v` before publishing security changes. Icon regeneration requires a patched Python with `tarfile.data_filter` support. Archive extraction rejects traversal, links, special files and oversized payloads, and never falls back to unfiltered extraction. Use an exact npm package version; lifecycle scripts are disabled for the download.
+Run `python3 -m unittest discover -s tests -v` and `python3 scripts/release-check.py` before opening a pull request; CI runs both on every pull request and before any release is published. Keep workflow actions pinned to full commit IDs and review Dependabot updates before merging them. Icon regeneration requires a patched Python with `tarfile.data_filter` support. Archive extraction rejects traversal, links, special files and oversized payloads, and never falls back to unfiltered extraction. Use an exact npm package version; lifecycle scripts are disabled for the download.
 
 Review SVG output and dependency provenance before committing regenerated assets. Do not use unreviewed package versions. Review secret-scan alerts privately; never paste a suspected credential in a public issue. Revoke exposed credentials before cleaning history.
 
