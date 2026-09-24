@@ -4,7 +4,7 @@ One row per release: what version you are on, the commit it was cut from, and wh
 
 **Which version is installed.** `version` in `.claude-plugin/plugin.json` and `metadata.version` in `SKILL.md`. They are held equal by `scripts/release-check.py`.
 
-**How to read a row.** *Bump* follows the README versioning table: a **major** release changed a published value, so work built to the previous release can now fail. Before reusing a deliverable built on an older major, read that major's changelog entry. *Commit* is the commit that version shipped from. The newest row reads `pending` until its tag exists. A release's own commit cannot contain its own ID, so the tag records it and the row is filled when the next release is prepared.
+**How to read a row.** *Bump* follows the versioning table in [`CONTRIBUTING.md`](../CONTRIBUTING.md#versioning): a **major** release changed a published value, so work built to the previous release can now fail. Before reusing a deliverable built on an older major, read that major's changelog entry. *Commit* is the commit that version shipped from. The newest row reads `pending` until its tag exists. A release's own commit cannot contain its own ID, so the tag records it and the row is filled when the next release is prepared.
 
 **Maintainers.** Add the new row at the top in the same change as the CHANGELOG entry. Replace the previous `pending` with the full commit ID its tag points at. The release gate fails on a missing row, a date that disagrees with the changelog, a bump that disagrees with the version numbers, a commit that is not in history, or a tag that points somewhere else.
 
