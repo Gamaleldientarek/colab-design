@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>03 — Claim + Evidence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1920px; height:1080px; overflow:hidden; }
+  body {
+    position:relative; width:1920px; height:1080px;
+    background:#FFFFFF; /* Light ground */
+    font-family:'Inter', sans-serif; -webkit-font-smoothing:antialiased;
+  }
+  .stage { position:absolute; inset:0; }
+  .eyebrow {
+    position:absolute; left:100px; top:120px;
+    font-size:24px; line-height:1.2; font-weight:500;
+    color:#103A21; text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .claim {
+    position:absolute; left:100px; top:320px; width:620px;
+    font-size:40px; font-weight:500; color:#103A21;
+    line-height:1.35; letter-spacing:-0.014em;
+  }
+  .caption {
+    position:absolute; left:100px; top:504px; width:560px;
+    font-size:16px; font-weight:400; color:#6C737F;
+    line-height:1.35; letter-spacing:-0.011em;
+  }
+  .chart-head {
+    position:absolute; left:760px; top:244px;
+    font-size:16px; font-weight:600; color:#4D5761;
+    text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .axis { position:absolute; left:760px; top:700px; width:1060px; height:1px; background:#E5E7EB; }
+  .bar { position:absolute; top:0; height:700px; width:160px; }
+  .bar .fill { position:absolute; bottom:0; left:0; width:100%; }
+  .bar .value {
+    position:absolute; left:0; width:100%; text-align:center;
+    font-size:20px; font-weight:600; color:#103A21;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+  .bar .cat {
+    position:absolute; top:712px; left:0; width:100%; text-align:center;
+    font-size:16px; font-weight:400; color:#4D5761;
+  }
+  .footer { position:absolute; left:0; top:982px; width:1920px; height:98px; }
+  .footer .logo { position:absolute; left:100px; top:36px; width:110px; height:auto; }
+  .footer .page {
+    position:absolute; right:100px; top:40px;
+    font-size:16px; font-weight:500; color:#4D5761;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+  .motif-field { position:absolute; left:0; top:0; width:1920px; height:1080px; overflow:visible; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="eyebrow">Usability Finding</div>
+    <div class="claim">Most drop-off happens at the payment step, not account creation.</div>
+    <div class="caption">Session-recording analysis, checkout funnel &middot; n&nbsp;=&nbsp;42 sessions</div>
+
+    <div class="chart-head">Drop-off by checkout step</div>
+    <div class="axis"></div>
+
+    <div class="bar" style="left:800px;">
+      <div class="value" style="top:600px;">8%</div>
+      <div class="fill" style="height:60px; background:#6C737F;"></div>
+      <div class="cat">Cart</div>
+    </div>
+    <div class="bar" style="left:1020px;">
+      <div class="value" style="top:560px;">14%</div>
+      <div class="fill" style="height:100px; background:#6C737F;"></div>
+      <div class="cat">Shipping</div>
+    </div>
+    <div class="bar" style="left:1240px;">
+      <div class="value" style="top:348px;">42%</div>
+      <div class="fill" style="height:312px; background:#103A21;"></div>
+      <div class="cat">Payment</div>
+    </div>
+    <div class="bar" style="left:1460px;">
+      <div class="value" style="top:616px;">6%</div>
+      <div class="fill" style="height:45px; background:#6C737F;"></div>
+      <div class="cat">Confirmation</div>
+    </div>
+
+    <div class="footer">
+      <img class="logo" src="../../logo/colab-wordmark-pine-green.svg" alt="colab.">
+      <div class="page">03</div>
+    </div>
+    <div class="motif-field" id="field"></div>
+  </div>
+  <script src="motif.js"></script>
+  <script>
+    document.fonts.ready.then(function () {
+      ColabMotif.renderDitherField(document.getElementById('field'),
+        { x: 1640, y: 760, w: 180, h: 160 },
+        { dir: 'right', targetFill: 0.15, color: '#103A21', opacity: 0.6, seed: 3, markerEvery: 8 });
+      document.body.setAttribute('data-ready', '1');
+    });
+  </script>
+</body>
+</html>

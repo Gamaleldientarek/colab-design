@@ -18,6 +18,9 @@ For maintainers and anyone proposing a change. To use the skill, you need only t
 | A report pattern or a research-reporting convention | `references/report-template.md` |
 | Anything Arabic, RTL, mirroring, or bilingual | `references/rtl-arabic.md` |
 | A slide layout, its geometry, its motif spec, its ground | `references/slide-library.md` |
+| A pixel/dither poster rule: the A4 grid, the template, the field and type zones | `references/pixel-dither-posters.md` |
+| How to run an online inspiration session and log its result | `references/inspiration-sessions.md` |
+| An outside design reference and its state: approved, held or rejected | `references/approved-inspirations.md` |
 | A new kind of request users should know the skill handles | `EXAMPLES.md` |
 
 `SKILL.md` is loaded on **every** invocation. A rule earns a place there only if a designer would produce failing work without it. Everything else goes in a reference and gets a pointer.
@@ -92,5 +95,7 @@ The tests in `tests/` also check that links and repo paths resolve, README and S
 python3 scripts/vendor-hugeicons.py      # re-vendor Hugeicons at a pinned version
 python3 scripts/rebuild-icon-index.py    # rebuild the index from assets/icons/
 ```
+
+The example slides in `assets/examples/` are rendered from `assets/examples/src/`: one HTML page per slide at 1920×1080 plus `motif.js`, the dither engine (20 px module, hashed cell selection, density per §4 of `layout-archetypes.md`, text boxes excluded with 40 px clearance). Open a page in a headless browser after fonts load, screenshot at 1920×1080, and rebuild `strip.png` from the six. Re-render whenever a rule the slides show changes.
 
 Logos and shapes are exported from the Figma component sets by hand. `assets/figma-export-manifest.json` records the source variant, size and colour of every SVG so an export can be verified against its origin. Update the manifest in the same change as the export; the tests compare byte counts and colours.

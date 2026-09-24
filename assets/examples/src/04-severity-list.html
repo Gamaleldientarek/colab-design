@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>04 — Severity List</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1920px; height:1080px; overflow:hidden; }
+  body {
+    position:relative; width:1920px; height:1080px;
+    background:#011E14; /* Deep Jade / Dark ground */
+    font-family:'Inter', sans-serif; -webkit-font-smoothing:antialiased;
+  }
+  .stage { position:absolute; inset:0; }
+  .eyebrow {
+    position:absolute; left:100px; top:120px;
+    font-size:24px; line-height:1.2; font-weight:500;
+    color:#34FF67; text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .title {
+    position:absolute; left:100px; top:168px; width:1200px;
+    font-size:60px; font-weight:700; color:#FFFFFF;
+    line-height:0.90; letter-spacing:-0.022em;
+  }
+  .row { position:absolute; left:100px; width:1720px; height:88px; }
+  .rule { position:absolute; left:100px; width:1720px; height:1px; background:rgba(255,255,255,0.10); }
+  .chip {
+    position:absolute; left:0; top:20px; width:180px; height:48px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:16px; font-weight:700; letter-spacing:0.04em; color:#011E14;
+  }
+  .desc {
+    position:absolute; left:220px; top:32px; width:1060px;
+    font-size:20px; font-weight:400; color:#E5E7EB; letter-spacing:-0.011em;
+  }
+  .metric {
+    position:absolute; left:1320px; top:32px; width:400px; text-align:right;
+    font-size:20px; font-weight:500; color:rgba(255,255,255,0.8);
+    font-variant-numeric: tabular-nums lining-nums; letter-spacing:-0.011em;
+  }
+  .footer { position:absolute; left:0; top:982px; width:1920px; height:98px; }
+  .footer .logo { position:absolute; left:100px; top:36px; width:110px; height:auto; }
+  .footer .page {
+    position:absolute; right:100px; top:40px;
+    font-size:16px; font-weight:500; color:rgba(255,255,255,0.8);
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="eyebrow">Severity-Rated Issues</div>
+    <div class="title">Checkout Flow &mdash; Issue Log</div>
+
+    <div class="row" style="top:320px;">
+      <div class="chip" style="background:#FF5A32;">CRITICAL</div>
+      <div class="desc">Payment form rejects valid cards with no error message</div>
+      <div class="metric">38% of attempts</div>
+    </div>
+    <div class="rule" style="top:408px;"></div>
+
+    <div class="row" style="top:440px;">
+      <div class="chip" style="background:#FF5A32;">CRITICAL</div>
+      <div class="desc">Guest checkout is hidden behind a mandatory login prompt</div>
+      <div class="metric">29% drop-off</div>
+    </div>
+    <div class="rule" style="top:528px;"></div>
+
+    <div class="row" style="top:560px;">
+      <div class="chip" style="background:#A8B294;">MEDIUM</div>
+      <div class="desc">Shipping cost appears only at the final step</div>
+      <div class="metric">18% abandon</div>
+    </div>
+    <div class="rule" style="top:648px;"></div>
+
+    <div class="row" style="top:680px;">
+      <div class="chip" style="background:#A8B294;">MEDIUM</div>
+      <div class="desc">Promo code field gives no confirmation it was applied</div>
+      <div class="metric">12% retries</div>
+    </div>
+    <div class="rule" style="top:768px;"></div>
+
+    <div class="row" style="top:800px;">
+      <div class="chip" style="background:#B1D9E8;">LOW</div>
+      <div class="desc">Order summary has no persistent scroll anchor</div>
+      <div class="metric">6% confusion</div>
+    </div>
+    <div class="rule" style="top:888px;"></div>
+
+    <div class="footer">
+      <img class="logo" src="../../logo/colab-wordmark-electric-green.svg" alt="colab.">
+      <div class="page">04</div>
+    </div>
+  </div>
+  <script>
+    document.fonts.ready.then(function () {
+      document.body.setAttribute('data-ready', '1');
+    });
+  </script>
+</body>
+</html>

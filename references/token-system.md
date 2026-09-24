@@ -237,6 +237,8 @@ Family, weight, size, leading and tracking. **Modes are languages, not grounds.*
 | `leading/body/*` | 54 · 48.6 · 37.8 · 32.4 · 27 · 21.6 · 16.2 | 60 · 54 · 42 · 36 · 30 · 24 · 18 |
 | `tracking/*` | −2.5 … −1.1, caps +4 / +6 | **0 throughout** |
 
+**Display 280 and 120: specified 2026-09-24, pending in Figma `04 Typography`.** The skill's type scale gained both steps on that date. The variables do not exist in the file yet, so every count in this file (41 in `04 Typography`, 20 `size/font/*` primitives, 504 in total) still describes the file as it is. When they are built they take `size/display/*` 280 and 120, identical in EN and AR, with `leading/display/*` **252 / 108** in EN (×0.90) and **420 / 180** in AR (×1.5), plus the matching `size/font/*` primitives and the proposed styles `Display/2XL` and `Display/S+`. Until then a 280 or 120 text node has no style or variable to bind to, so it fails pass-gate #13 (`layout-archetypes.md` §8) until they exist.
+
 **Sizes are identical across EN and AR. Only leading and tracking move.** Arabic is ~10% *narrower* than Latin, not smaller — any measurement suggesting a size step-up is a stale-layout artifact.
 
 **AR leading is ×1.5, and it is a collision floor, not a preference.** The MSA ink envelope is 1.505em; below it, ascenders and descenders touch. Never share a leading token between EN and AR.

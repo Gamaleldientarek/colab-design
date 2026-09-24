@@ -43,9 +43,9 @@ Spans `[M]`: C1–C2 **400** · C1–C3 **620** · C1–C4 **840** · C1–C5 **
 
 Three consequences: Deep Jade replaces Navy and is better · Electric floods carry Deep Jade type · Pine-on-Deep-Jade is the only way to divide a canvas without drawing a line.
 
-**Scale ratios** `[M]`: 240→200 = 1.20 · 200→160 = 1.25 · **160→60 = 2.67** · 60→40 = 1.50 · 40→24 = 1.67.
+**Scale ratios** `[M]`: 280→240 = 1.17 · 240→200 = 1.20 · 200→160 = 1.25 · 160→120 = 1.33 · **160→60 = 2.67** · 120→60 = 2.00 · 60→40 = 1.50 · 40→24 = 1.67.
 
-**The scale is bimodal, with a chasm between 60 and 160.** That chasm is the deck's principal instrument. Treat 240/200/160 as three *alternatives* for one slot, never three steps of a hierarchy — 240 next to 160 is 1.5:1 and reads as an error.
+**The scale is bimodal, with a chasm between 60 and 160 for ordinary slides.** That chasm is the deck's principal instrument — do not fill it with 120 by default. Treat 280/240/200/160 as four *alternatives* for one slot, never four steps of a hierarchy — 280 next to 240 is 1.17:1 and reads as an error, the same failure as 240 next to 160 at 1.5:1. **120 is reserved for the Statement slide archetype only** (`layout-archetypes.md` #17, a single full-bleed statement filling most of the live zone): a fifth alternative parked in the chasm for one named use, not a general middle step. Pairing 120 with 160 on one slide is a 1.33:1 trap, the same failure as 240:200.
 
 ---
 
@@ -145,7 +145,7 @@ The 20px offset is the motif module. Never 24 or 16.
 
 | Ratio | Reads as | Verdict |
 |---|---|---|
-| < 1.4:1 | Two attempts at one size | **Never.** 240:200 and 24:20 are the traps |
+| < 1.4:1 | Two attempts at one size | **Never.** 280:240, 240:200, 160:120 and 24:20 are the traps |
 | 1.5–2:1 | Ordinary hierarchy | Within a component only |
 | 2.7:1 | Clear | 160:60, the natural jump |
 | **4–8:1** | **Dominance** | **Target band for a slide's primary contrast** |
@@ -186,7 +186,7 @@ Inter's designer publishes a metrics formula `[S]`:
 
 | Slot | Tracking |
 |---|---|
-| Display 240/200/160 | **−2.5%** Black · **−2.2%** Regular/Light · **−1.8%** Thin |
+| Display 280/240/200/160/120 | **−2.5%** Black · **−2.2%** Regular/Light · **−1.8%** Thin |
 | Display 60/40 | −2.2% |
 | Caps at 24/20 (kickers, table headers) | **+4%** |
 | Body 28/24/20 | −1.7% to −2.0% |
@@ -211,8 +211,10 @@ Block height for cap-trimmed text `[M]`: `(n−1) × LH × size + 0.727 × size`
 
 | Size | LH | 1 line | 2 | 3 |
 |---|---|---|---|---|
+| 280 | 0.90 | 204 | 456 | 708 |
 | 240 | 0.90 | 175 | 391 | 607 |
 | 160 | 0.90 | 116 | **260** | 404 |
+| 120 | 0.90 | 87 | 195 | 303 |
 | 60 | 0.95 | 44 | 101 | 158 |
 
 **Memorise the 160 row.** Two-line 160 = 260px; cap at y 284 → bottom at 544, almost exactly the content-zone midline. The deck's most reliable headline setting.
@@ -221,15 +223,15 @@ Block height for cap-trimmed text `[M]`: `(n−1) × LH × size + 0.727 × size`
 
 Negative x offset as a fraction of font size `[D]`:
 
-| Leading char | Offset | At 160 | At 240 |
-|---|---|---|---|
-| `"` `'` `“` | −0.30 em | −48 | −72 |
-| `T` `Y` `V` `W` | −0.020 | −3.2 | −4.8 |
-| `A` | −0.015 | −2.4 | −3.6 |
-| `O` `C` `G` `S` | −0.010 | −1.6 | −2.4 |
-| `1` (lining) | −0.045 | −7.2 | −10.8 |
-| `—` `–` | −0.55 | −88 | −132 |
-| `H I L N M B D E F K P R` | **0** | 0 | 0 |
+| Leading char | Offset | At 120 | At 160 | At 240 | At 280 |
+|---|---|---|---|---|---|
+| `"` `'` `“` | −0.30 em | −36 | −48 | −72 | −84 |
+| `T` `Y` `V` `W` | −0.020 | −2.4 | −3.2 | −4.8 | −5.6 |
+| `A` | −0.015 | −1.8 | −2.4 | −3.6 | −4.2 |
+| `O` `C` `G` `S` | −0.010 | −1.2 | −1.6 | −2.4 | −2.8 |
+| `1` (lining) | −0.045 | −5.4 | −7.2 | −10.8 | −12.6 |
+| `—` `–` | −0.55 | −66 | −88 | −132 | −154 |
+| `H I L N M B D E F K P R` | **0** | 0 | 0 | 0 | 0 |
 
 **The numeral-1 case is the most common miss** — any KPI row starting with `1` at 200px needs a −9px nudge.
 
@@ -386,14 +388,16 @@ Four peaks, each followed within one slide by a 1 or 2. Six voids, evenly spread
 
 ### 2.10 The collapsed ladder and the dominance rule
 
-#### 2.10.1 Seven sizes, deck-wide
+#### 2.10.1 Nine sizes, deck-wide
 
 | Role | Size | LH | Tracking | Style |
 |---|---|---|---|---|
+| Extreme hero / cropped numeral | **280** | 0.90 | −2.5% | `Display/2XL` *(proposed name)* |
 | Hero numeral | **240** | 0.90 | −2.5% | `Display/XL` |
 | Statement title — cover, divider, closing | **160** | 0.90 | −2.5% | `Display/M` |
+| Full-bleed statement (Statement slide archetype only) | **120** | 0.90 | −2.5% | `Display/S+` *(proposed name)* |
 | Running title | **60** | 0.95 | −2.2% | `Display/S` |
-| Primary claim | **40** | 1.16 | −2.2% | `Display/XS` |
+| Primary claim | **40** | **1.35** | −2.2% | `Display/XS` |
 | Body | **24** | **1.35** | −2.0% | `Body/M` |
 | Eyebrow / caps label | **24** | 1.00 | **+4%** | `Caps/M` |
 | Secondary / label | **20** | **1.35** | −1.7% | `Body/S` |
@@ -401,7 +405,9 @@ Four peaks, each followed within one slide by a 1 or 2. Six voids, evenly spread
 
 **Eliminated from slide-level type:** `520 · 200 · 100 · 96 · 64 · 56 · 50 · 36 · 28 · 22 · 18 · 17 · 15 · 14 · 13 · 7.62`
 
-**The ladder is closed at 240.** Archetype A-01 / T-14's over-scale numeral is achieved by positioning a Display 240 so it **crops at the canvas edge** — never by inventing a 380–420px size. The visual effect is preserved; the ladder stays honest and the 0-off-scale gate stays enforceable.
+`Display/2XL` (280) and `Display/S+` (120) are **proposed style names**. Neither style, nor the `04 Typography` variables behind them, exists in the Figma file yet (specified 2026-09-24, pending; `token-system.md` §7). Whoever builds them picks the final names.
+
+**The ladder is closed at 280.** Archetype A-01 / T-14's over-scale numeral is achieved by positioning a Display 280 so it **crops at the canvas edge** — never by inventing a 380–420px size. The visual effect is preserved; the ladder stays honest and the 0-off-scale gate stays enforceable. 280 also carries the Framed poster cover headline (`layout-archetypes.md` #15) without a crop.
 
 **Scope.** The ladder governs **slide-level** type. `Typography/*` retains 200/40/36/28 for component internals and dense tables — the same scope split the pass gate uses. A 28px value on a slide root is a defect; a 28px value inside a `Finding Card` instance is the component's business.
 
@@ -474,8 +480,10 @@ Block height for cap-trimmed text `[M]`: `(n−1) × LH × size + 0.727 × size`
 
 | Size | LH | 1 line | 2 | 3 |
 |---|---|---|---|---|
+| 280 | 0.90 | 204 | 456 | 708 |
 | 240 | 0.90 | 175 | 391 | 607 |
 | 160 | 0.90 | 116 | **260** | 404 |
+| 120 | 0.90 | 87 | 195 | 303 |
 | 60 | 0.95 | 44 | 101 | 158 |
 
 **Memorise the 160 row.** Two-line 160 = 260px; cap at y 284 → bottom at 544, almost exactly the content-zone midline. The deck's most reliable headline setting.

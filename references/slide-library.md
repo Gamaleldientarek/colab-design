@@ -9,11 +9,13 @@ Canvas **1920 × 1080**. Grid, anchors and footer band per `layout-archetypes.md
 Notation: `[x, y, w, h]` · `T` text · `R` rect · `I` instance · `F` frame · `C` component
 Motif: `[x, y, w, h, fill]` — `fill` is the measured cell-occupancy ratio, the number to reproduce.
 
+**N = specified, not yet built in Figma.** A plain `#` is the Figma frame number of a built slide. Entries **N1–N11** (added 2026-09-24, `layout-archetypes.md` archetypes 15–22 and the Quiet divider) are rule-compliant specs with no frame yet. Their geometry is `[D]` unless marked; `[M]` there means measured by pixel-sampling a client deck render, not read from the Figma file. A value that depends on an open client question carries its **Q-n** (`decision-law.md`).
+
 ---
 
 ## 1. How to use this
 
-1. **Pick by job, not by number.** §2 groups the 36 by what they do.
+1. **Pick by job, not by number.** §2 groups the 36 by what they do, with the specified N entries beside the built slides of the same job.
 2. **Copy the geometry exactly.** These positions are on the column grid and the vertical anchors; nudging them is how decks drift.
 3. **Copy the motif spec exactly too** — position, size *and* fill. The fill column is why the deck looks coherent; §3 has the distribution.
 4. **For Arabic, apply §4** — do not re-derive the mirror per slide, and do not mirror `y`.
@@ -35,6 +37,18 @@ Motif: `[x, y, w, h, fill]` — `fill` is the measured cell-occupancy ratio, the
 
 > The divider pattern is fixed: **statement anchors** eyebrow y470 / title y518, a full-height field on the outer edge, and a small `500×264` counter-patch at `[100,120]` on the *same* side as the title.
 
+Specified, not yet built:
+
+| # | Slide | Ground | Motif `[x,y,w,h,fill]` | Anatomy |
+|---|---|---|---|---|
+| **N1** | Framed poster cover | Electric | `[1380,50,490,980,.19]` [D], modelled on Cover #01's field proportions; sparse→dense toward the bottom-right corner, as the deck runs it `[M]` | frame: Pine full bleed `[0,0,1920,1080]`, inset **uniformly 50** on all sides to reveal the Electric flood `[50,50,1820,980]` · title T160 `[100,518,880,260]`, ≤2 lines, **Deep Jade ink** · meta-field I ×3 at x **100 / 380 / 660**, y816, h32 (Cover #01's anatomy) · logo footer-confined |
+| **N2** | Closer (framed poster, mirrored) | Electric | `[50,50,490,980,.19]` [D], mirrored to the bottom-left per archetype 14's closer rule | frame as N1 · no large headline · one-line deck title T24 + meta-field row at **y894** (statement meta-block anchor, `layout-archetypes.md` §0.5.2) · logo footer-confined |
+| **N11** | Quiet divider (variant of 06 / 19 / 23) | Pine | **0%**, none | eyebrow T24 `[100,470,…]` · title T160 `[100,518,…]`, left edge x100 |
+
+> **N1 / N2, pending Q-6:** deck frame inset **40 / 40 / 40 / 112** (L / R / B / T, asymmetric) `[M]` · metadata slate at **x40 / y≈37**, inside both the 50px bleed-safe margin and the column grid `[M]` · headline at **x120 / y≈137**, off both anchor systems, 3 lines, ≈294px nominal cap-height `[M]` · logo lockup used as the cover's own art rather than footer-confined `[M]`. The deck's closer keeps the cover's right-edge field `[M]`; mirroring it is a plain correction under archetype 14, not an open question.
+>
+> **N11, pending Q-8:** deck title left edge **x196** `[M]`; eyebrow and title mid-page rather than on y470 / 518 `[M]`; a deck-wide running eyebrow at **y≈39–65** `[M]` rather than the running anchor y120.
+
 ### Contents and agenda
 
 | # | Slide | Ground | Motif | Anatomy |
@@ -51,6 +65,16 @@ Row internals: `agenda-number` 140 wide, `agenda-label` 1400 wide, row gap 80, `
 | **04** | Objectives | Pine | `[0,460,720,460,.22]` | title T60 `[100,168]` · body T28 `[100,300,451,114]` · group-title T20 ×2 at y **168 / 530** · numbered-item I ×4 at x760, y **236/366/598/728**, pitch 130 · block-rule ×2 `[760,204,1060,1]` / `[760,566,…]` |
 | **09** | Task Overview | White | `[940,0,980,260,.18]` | title T60 `[100,100]` · body T16 `[100,200,800,12]` · stat-value T160 `[100,320,368,116]` · stat-label T16 `[100,510]` · caption T12 `[100,560]` · table `[667,300,1167,…]` |
 
+Specified, not yet built:
+
+| # | Slide | Ground | Motif | Anatomy |
+|---|---|---|---|---|
+| **N3** | Stacked word column | Pine | none, or two static checker atoms per open **Q-9**: `[100,80,180,120]` top rail and `[100,840,180,120]` bottom rail, 9×6 cells at the 20px module, non-gradient `[M]` | prose column C1–C3 (x100, w620): paragraph 1 Body 24/1.35, pitch 38, 6 lines `[100,320,620,228]` · paragraph 2 Body 16/1.35, pitch 24, 3 lines `[100,600,620,72]` · word column C6–C8 (x1200, w620): word I ×3, Display 160 Black, 1 line, all-caps, tracking −2.5%, h116, pitch **220** at y **320 / 540 / 760**, Electric ink |
+| **N5** | Card grid, 5-up | White | none, or a shallow corner field per open **Q-9**: `[1640,50,180,300,.18]` [D] | title T60 `[100,168,…]` · card I ×4 row 1, w400, pitch 440, at x **100 / 540 / 980 / 1420**, y420, h220 · card I ×1 + synthesis panel (x540, w1280) row 2, y680 · numeral chip fill **Pine**, not Electric (pending Q-2) · ink **Pine `text/primary`**, not `#0D121C` (pending Q-5) |
+| **N6** | Card grid, 8-up | Pine | none, or two lone corner markers (`o` top-right, `×` bottom-right) per open **Q-9** | title T60 `[100,168,…]` · card I ×8, w400, pitch 440, 2 rows × 4 at x **100 / 540 / 980 / 1420**, row 1 y380–600, row 2 y640–860 · numeral chip 01–08, Electric on Pine (compliant) |
+
+> N5 and N6 are two worked instances of one archetype (`layout-archetypes.md` #18). N6's pitch corrects the deck's custom **396px** column pitch `[M]` to the legal **440px** 2-column pitch, a plain correction.
+
 ### KPI and metric
 
 | # | Slide | Ground | Motif | Anatomy |
@@ -59,6 +83,14 @@ Row internals: `agenda-number` 140 wide, `agenda-label` 1400 wide, row gap 80, `
 | **24** | Testing Activities | Pine | `[0,760,920,160,.19]` + `[420,0,1500,340,.19]` | title T60 `[100,120,266,101]` · stat-value T160 ×2 at x **100 / 487**, y518 · stat-label T16 ×2 y698 · card frame `[967,380,770,517]` |
 
 Progress bar internals (12): `target-track` 526 wide · `target-actual` 395 (75%) · `target-notch` 2 wide at the track's **far** end.
+
+Specified, not yet built:
+
+| # | Slide | Ground | Motif | Anatomy |
+|---|---|---|---|---|
+| **N8** | Metric card panel | White, Off-white header band | none, or a header-band field per open **Q-9**: `[1640,50,180,300,.20]`, the deck's own on-module field `[M]` | title T60 `[100,168,…]` · insight-card I ×3 at x **100 / 660 / 1220**, w500, y360–680 · numeral chip fill **Pine**, not Electric (pending Q-2) · card ground **Pine or Deep Jade**, not a per-topic hue (pending Q-3) · right lists at **x1420** (C7) · severity-list chip on the fixed severity scale, **Vivid Orange** for critical, not pink (pending Q-4) · caption ink `text/muted` (`#6C737F` on Light mode, see Q-4) or `#BCBEC0` |
+
+> Right-column lists clamp to x1420; the deck's x1314 / x1385 `[M]` is a plain correction.
 
 ### Tables and ledgers
 
@@ -83,6 +115,17 @@ Progress bar internals (12): `target-track` 526 wide · `target-actual` 395 (75%
 | **27c** | Area Insights — Ledger | Pine | `[1203,-100,720,260,.15]` | single column: rule ×5 `[100,406+128n,1720,1]` · finding-title **T40** x180 · finding-evidence T20 x1200 · glyph 44 at x100 |
 | **27d** | Area Insights — Split | Deep Jade | `[1489,720,431,220,.22]` | identical to **27** |
 | **29** | Area Insights — Tags | Pine | — | insight-card I ×9 in 3 cols x **100/686/1272**, `[…,300,562,190]` |
+
+Specified, not yet built:
+
+| # | Slide | Ground | Motif | Anatomy |
+|---|---|---|---|---|
+| **N7** | Detail spread | Pine (rotates with Deep Jade across instances) | none (none in the deck `[M]`), or a shallow edge field per open **Q-9** | title T60 `[100,168,880,101]` · body Body 28 `[100,300,880,38]`, 1 line · card I ×3 `[100,700,1060,204]`, spanning C1–C5 · right panel C6–C8 `[1200,50,620,980]`: ground **Off-white**, icon **Pine** stroke 48px / 2.5, ≤1 line Body 24 **Pine** ink |
+| **N9** | Activity matrix | White, Off-white header band | none, or a header-band field per open **Q-9**: `[1640,50,180,212,.17]` [D], on the deck's own 20px module `[M]` | header title pair, y120 / 168 · **Option B (2 rows)**: row 1 four 2-column cells (C1–C2 / C3–C4 / C5–C6 / C7–C8), y380–650 · row 2 two 4-column cells (C1–C4 / C5–C8), y690–940 · icon stroke **Pine**, not Electric · category pill fill **Pine or Olive**, not Electric |
+
+> **N7:** pending **Q-1** (Electric flood behind the panel statement, near-black `#0D121C` ink `[M]`) · **Q-2** (Electric numeral chips and icon stroke on the panel `[M]`) · **Q-3** (the left ground rotates teal `#2A3D43`, maroon `#3F0C00`, olive `#333D21` and navy `#1D2A56` `[M]`; navy is banned under C-01c whatever the ruling) · **Q-5** (ink). The card row must clear y940; the deck's runs y≈672–1030 `[M]`, a plain overrun correction.
+>
+> **N9:** pending **Q-7** (the deck's 6-column grid at x≈124 / 427 / 731 / 1034 / 1337 / 1641, pitch ≈303px, on no legal column start `[M]`) · **Q-2** (Electric icon strokes and a solid Electric category-pill fill `[M]`).
 
 ### Device evidence
 
@@ -112,6 +155,24 @@ Progress bar internals (12): `target-track` 526 wide · `target-actual` 395 (75%
 > **17's field is unique**: `fill .39` and **uniform** — no ramp. It is a divider rule built from the module, and it lives *inside* the comparison row as a child, which is what centres it.
 
 > **26's `insight-field` is data, not decoration.** 130 squares, one per insight, coloured by severity. Never re-solve, re-density or delete it.
+
+Specified, not yet built:
+
+| # | Slide | Ground | Motif | Anatomy |
+|---|---|---|---|---|
+| **N4** | Statement slide | Pine | two lone corner markers, `o` at `[1750,150,20,20]` and `×` at `[1750,850,20,20]`, never adjacent | eyebrow T24 `[100,120,…]` (optional kicker) · statement **T120** Black, forced breaks, LH 0.90, tracking −2.5%, ≤4 lines, `[100,380,1280,411]` (C1–C6 measure) · Electric ink on Pine (compliant) |
+
+> The deck's kicker at **y268–324** `[M]` corrects to the running eyebrow **y120**, a plain correction. Its ~119–120px statement size `[M]` was off the ladder (C-11) and now lands on **Display 120**, which exists for this archetype (`layout-archetypes.md` #17, `editorial-technique.md` §2.10.1).
+
+### Notice and closing
+
+Specified, not yet built. The built closer is **31** (Thank You, under Openers and dividers); the framed closer is **N2**.
+
+| # | Slide | Ground | Motif | Anatomy |
+|---|---|---|---|---|
+| **N10** | Notice slide | White | none | heading `Caps/M` or Body 24 `[100,800,520,32]` · body Body 16 `[100,844,520,40]`, 1–2 short lines. `editorial-technique.md` A-07 "The Void" (cap line y800) |
+
+> No numbered conflict. The deck sets heading and body lower still (y≈886–938) `[M]`, flagged only against the unnumbered taste-profile line ("dead space in the lower third"), not a Q.
 
 ---
 

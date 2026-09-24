@@ -19,7 +19,7 @@ Vertical: 50px bleed-safe top margin · **932px live content zone** (y 50→982)
 
 ---
 
-## 1. The 14 layout archetypes
+## 1. The 22 layout archetypes
 
 Grounding `[S]`: Swiss / International Typographic Style presentation practice rests on strict grid alignment, **asymmetric** composition rather than centred blocks, a restricted high-impact palette, and negative space treated as an active element rather than leftover. Craft in the Stripe/Linear/Figma idiom is restraint and precision, not ornament density.
 
@@ -39,11 +39,88 @@ Grounding `[S]`: Swiss / International Typographic Style presentation practice r
 | 12 | **Recommendations / next steps** | Closing findings slide | List C2–C6 · priority tag C7–C8 | Numerals as display-160 markers in the C1 gutter | None | ≤4 items, 1 line each |
 | 13 | **Logo / capability grid** | Sales credibility | Uniform modules, 1 col wide, gutters preserved | Kicker top-left C1 | Fills dead cells when count is uneven (7 logos in 8 slots → motif fills the 8th) | Grid only, no prose |
 | 14 | **Closing / CTA** | Final slide | Mirrors #1 flipped: CTA C4–C8 · motif C1–C3 | Baseline 62% height, right-aligned to C8 | Mirrored dissolve, dense→sparse right to left | ≤6 words + 1 contact line |
+| 15 | **Framed poster cover** | Poster-style opener or closer: a two-tone framed alternative to #1's asymmetric split | No column split. Full-bleed Electric flood inside a Pine frame; content held to C1, meta-field row at the Cover #01 anchor | Statement anchors (eyebrow y470, title y518), Display up to 160 `[D]` (280 for a one-line poster headline), ≤2 lines, **Deep Jade ink**, never Pine, never white | Dissolve field, 20px module, sparse→dense toward the bottom-right corner (cover) or bottom-left (closer, mirrored per #14), 60–100% ceiling | ≤2 title lines + 3-field metadata slate |
+| 16 | **Stacked word column** | Three parallel short claims set as emphatic single words, paired with supporting prose. Not an agenda, not a KPI row | C1–C3 prose · C6–C8 stacked words, C4–C5 left empty so the two blocks read as separate | None. Three Display 160 words `[D]`, 1 line each, all-caps, tracking −2.5%, pitch 220 (the column pitch) | None, or a static checker-block atom at each end of the prose rail, per open **Q-9** (`decision-law.md`). Never touching the live text block | 3 words + 2 supporting paragraphs, each ≤3 lines |
+| 17 | **Statement slide** | A single bold multi-line assertion fills the live zone, no supporting exhibit: the manifesto move | C1–C6, left-aligned x100 (T-08 "Type Is the Image", `editorial-technique.md`) | **Display 120**, Black, forced breaks, LH 0.90, tracking −2.5%, ≤4 lines `[D]` | None, or two lone corner markers (`o` / `×`), never adjacent | 1 statement, ≤4 lines, no body copy, no bullets |
+| 18 | **Card grid** | 3–8 short parallel claims as uniform cards, no numeral hierarchy | Rows of up to 4 cards, each 2 columns wide (C1–C2 / C3–C4 / C5–C6 / C7–C8, pitch 440); an uneven count runs an asymmetric final row | Display 60 title, y168, 1–2 lines | None, or a shallow edge field, per open **Q-9**. If a field is ruled in: corner or top band, 20px module, ~0.15–0.20 fill (`slide-library.md` §3) | ≤8 cards, ≤2 lines of prose per card |
+| 19 | **Detail spread** | A themed explainer: title + body + 3-card row beside a colour panel with an icon; repeats once per topic | C1–C5 title, body and cards · C6–C8 colour panel (house split, inverted) | Display 60 title y168, Body 28 statement beneath | None, or a shallow edge field, per open **Q-9** | 1 title + 1 statement (≤2 lines) + 3 cards; panel text ≤1 line |
+| 20 | **Metric card panel** | A pale header band holding 3 insight cards, over two side lists: a positive list and a severity-scored list | 3-card row on the 8-column measure · two right-column lists starting at C7 (x1420) | Display 60 title, y168, 1 line | None, or a shallow edge field, per open **Q-9**. If ruled in: top band of the header, 20px module, ~0.17–0.22 fill | 3 cards + 2 lists, ≤5–6 rows each (#10's severity-list cap) |
+| 21 | **Activity matrix** | A dense operational matrix: icon, heading, task list, impact line and responsibility tag, repeated per workstream | 4-up of 2-column cells (C1–C2 / C3–C4 / C5–C6 / C7–C8) per row, a second row for items past 4; or 2 stacked rows of uneven width (§1.1) | Header-band title pair, y120 / y168 | None, or a shallow edge field, per open **Q-9**. If ruled in: header band, 20px module, ~0.17 fill | ≤4 workstreams per row; task list per workstream capped per #10 |
+| 22 | **Notice slide** | Legal or confidentiality boilerplate: a minimal heading and one caption paragraph, deliberately mostly empty | Single narrow column, C1–C2 | Small heading, `Caps/M` or Body 20–24. No Display size | None | 1 heading + 1 short paragraph. Maps to `editorial-technique.md` **A-07 "The Void"**, cap line y800 |
+
+**Quiet divider (variant of #2).** Same anatomy as the Flood divider (eyebrow y470, title y518, Pine ground) but **0% motif** instead of the edge dither. Use for a section break that wants no visual weight beyond typography. The left edge stays x100 and the title stays on the statement anchors; a divider that drifts off both, title mid-page and left edge off-grid, is not a Quiet divider but an unbuilt one. Specified as `slide-library.md` **N11**; the measured deck version it corrects is `decision-law.md` **Q-8**.
+
+**Archetypes 15–22** were added 2026-09-24 from a construction audit of a client deck. Where a row or §1.1 cites a deck value as `[M]`, it was measured by pixel-sampling a render of that deck, not read from the live Figma file, which is this file's usual `[M]` source. Their `slide-library.md` entries are numbered **N1–N11** because none is built in Figma yet. Deck values that depend on an open client question carry its **Q-n**; the rule-compliant spec is what new work builds.
 
 ### System-level composition rules `[D]`
 1. **Never centre a text block across the full 8-column measure.** This is the single most important Swiss carryover.
 2. The **37 : 63 split** (3 cols text : 5 cols visual, or inverse) recurs deliberately across #3, #5, #7, #9. It is the system's default asymmetric proportion — close to a golden-ratio approximation, keeping every slide visually related without being identical.
 3. **RTL:** mirror the *entire column system* (C1↔C8, C2↔C7, C3↔C6, C4↔C5), not just text alignment inside a fixed LTR grid. Motif bleed edges swap sides too — otherwise the "assembling, piece by piece" density direction reads backwards. See §5.
+
+### 1.1 Archetypes 15–22: construction notes
+
+Where the table cannot carry the construction. Open questions are in `decision-law.md` §"Open client questions"; current rules apply until each is ruled.
+
+#### 15. Framed poster cover
+
+Not #1: a two-tone construction (a Pine frame around a full Electric flood) rather than #1's Deep Jade C1–C5 / C6–C8 split.
+
+- **Frame.** Outer Pine, full bleed. The inner Electric flood is inset **uniformly 50px** on all four edges, the system's own bleed-safe margin, not a bespoke value `[D]`.
+- **Ink on the flood is Deep Jade, not Pine.** Electric floods take Deep Jade text (13.07 : 1), not Pine (9.49 : 1) and never white (1.34 : 1), per `SKILL.md`. Pine passes, but it is not the house choice for a flood.
+- **Meta-field row** reuses Cover #01's anatomy exactly: 3 fields at x100 / 380 / 660, y816, h32.
+- **Logo** stays footer-confined (`decision-law.md`, "Logo appears in the footer only").
+- **The closer mirrors the cover** per #14: the motif migrates to the bottom-left. The source deck keeps the field on the same side for both `[M]`; that is a plain correction, not an open question.
+
+The deck's frame inset, metadata-slate position and logo-as-art are **Q-6**. The headline size is not: the deck's measured ~294px nominal cap-height `[M]` now has a home at the **Display 280** ceiling (`editorial-technique.md` §2.10.1), one line, cropped at the canvas edge per T-14 if a larger treatment is wanted.
+
+#### 16. Stacked word column
+
+The source deck's two static checker-block glyphs are a sanctioned atom (`SKILL.md` lists the checker block). Whether a content slide may carry them at all is **Q-9**; if it may, one static atom per rail end, non-gradient, is a minimal reading of the atom set, not a new exception. The grid deviation (a body column at x140, a word column at x≈1015–1879 breaching x1820 `[M]`) is a plain correction to x100 and C6–C8.
+
+#### 17. Statement slide
+
+The reason **Display 120** joined the scale: the deck's measured ~119–120px nominal cap-height `[M]` was off the ladder (C-11) and now lands on it exactly. **120 is reserved for this archetype** (`editorial-technique.md` §0). Two lone corner markers, unconnected to any field and never adjacent, are a legitimate minimal treatment of the marker atom.
+
+#### 18. Card grid
+
+One archetype, two worked instances (two source layouts merged 2026-09-24):
+
+- **5-up, light ground.** 4 cards in the top row, then 1 card and a synthesis panel. The asymmetric second row is intentional, not a defect (compare #4's uneven counts).
+- **8-up, dark ground.** 2 rows of 4, replacing the deck's custom 396px column pitch `[M]` with the legal 440px (2-column) pitch.
+
+Numeral-chip fill and ink on the light instance are open: **Q-2** (chip fill) and **Q-5** (ink). The dark instance has no conflict beyond the pitch, which is a plain correction.
+
+#### 19. Detail spread
+
+The source template breaks the most rules; it ties to four open questions:
+
+- **Q-1**: the colour panel is an Electric flood behind multi-line body text on a content-dense slide. Rule-compliant default: body copy off the flood (the panel carries an icon and ≤1 short line), or ground the panel Off-white or White with Pine ink.
+- **Q-2**: numeral chips and the panel icon stroke sampled Electric on a light card `[M]`.
+- **Q-3**: the left ground rotates through non-palette hues per instance `[M]`. Rule-compliant default: rotate Pine and Deep Jade only.
+- **Q-5**: the panel statement ink samples `#0D121C` `[M]`, not Pine or Deep Jade.
+
+The card row must clear the content floor y940. The deck's row runs y≈672–1030 `[M]`; compress it or raise it 60–80px, a plain vertical-law correction.
+
+#### 20. Metric card panel
+
+- **Q-2**: numeral chips Electric on white or pale cards `[M]`.
+- **Q-3**: insight-card grounds rotate the same non-palette hues as #19 `[M]`.
+- **Q-4**: the severity-scored list's pale pink chip fill and its caption ink. The caption's `#6C737F` is not itself off-palette: it resolves from `text/muted` on Light mode (`token-system.md` §5.2). The open question is whether it should read as ordinary muted text (compliant) or as a distinct severity cue (not compliant; needs the fixed severity scale).
+
+Right-column lists clamp to the legal column start **x1420** (C7). The deck's x1314 / x1385 `[M]` is a plain correction.
+
+#### 21. Activity matrix
+
+Two rule-compliant 8-column rebuilds:
+
+- **Option A: 4-up.** Four 2-column cells per row (C1–C2 / C3–C4 / C5–C6 / C7–C8), full content-zone height (y380→940). A 5th or 6th workstream continues on a second matrix slide rather than compressing the row.
+- **Option B: 2 rows.** Row 1: four 2-column cells (y380→650). Row 2: the remaining workstreams on wider cells, e.g. two 4-column cells (C1–C4 / C5–C8, y690→940). Keeps up to six on one slide, at the cost of uneven cell width between rows (the same move as #18's 5-up).
+
+The deck's own 6-column grid (pitch ≈303px, on no legal column start `[M]`) is **Q-7**. Icon strokes and category pills in Electric on white are **Q-2**.
+
+#### 22. Notice slide
+
+No numbered conflict. The deck is flagged only against the unnumbered taste-profile line ("dead space in the lower third"), which is advisory. Maps onto `editorial-technique.md` **A-07 "The Void"** (cap line y800, mostly empty); cite A-07 rather than inventing a new anchor.
 
 ---
 
@@ -88,7 +165,7 @@ No peer-reviewed source gives a numeral-to-canvas ratio. The sourced principle i
 
 | Context | Numeral cap-height | Rationale |
 |---|---|---|
-| Hero, single-stat slide (#5) | **380–420px** (~35–39% of canvas, ~41–45% of live zone) | Deliberately exceeds the largest display token (240). The one sanctioned exception — there is no competing headline |
+| Hero, single-stat slide (#5) | **380–420px** (~35–39% of canvas, ~41–45% of live zone) | Deliberately exceeds the largest display token (280, added 2026-09-24; was 240). The one sanctioned exception — there is no competing headline |
 | Inside a KPI row (#6, N≤5) | **160–200px** | Multiple numerals must stay within the display scale so the row doesn't compete internally |
 | Supporting stat beside a chart (#3/#9) | **60–100px** | Reinforcement, not headline |
 
@@ -122,7 +199,7 @@ No peer-reviewed source gives a numeral-to-canvas ratio. The sourced principle i
 | **Gradient direction** | Always migrates toward a canvas **edge or corner, never toward the centre** — the motif reads as entering/exiting the frame, reinforcing the bleed-safe logic |
 | **Gradient span** | ≤3 columns (**540px**) from sparse to fully dense. Longer reads as diffuse texture rather than directional assembly |
 | **Structural vs decorative** | **Structural** — covers and dividers (#1, #2, #14) where the motif *is* the background; journey diagrams (#11) where markers are touchpoints. **Decorative** — all content slides: confined to a single margin column (≤180px), never touching the live content block |
-| **Coverage ceiling** | ≤20% of canvas on content slides. Covers/dividers may run 60–100% |
+| **Coverage ceiling** | ≤20% of canvas on content slides. Covers/dividers may run 60–100% (open: decision-law Q-9) |
 | **Never under text** | The field occupies its own bounded zone that never underlaps a text bounding box, even at low density. Direct application of Tufte's chartjunk discipline to brand texture |
 | **Markers (`+ × o`)** | A controlled glyph set, not free additions. Placed at cell intersections only, ~**1 marker per 8–12 plain modules**, never adjacent to one another |
 | **Colour** | **One colour per instance.** Electric Green on Pine/Deep Jade, or Pine/Deep Jade on white/Electric-Green grounds. Never a second accent hue inside the motif |
@@ -249,7 +326,7 @@ A slide is done when **all fourteen** hold. Not "mostly".
 | 3 | Eyebrow **y120**, title **y168** — or **470 / 518** on statements. Deviation **0px** |
 | 4 | Nothing below **y940** except the footer |
 | 5 | All vertical gaps multiples of **4** |
-| 6 | Font sizes drawn only from the 7-size ladder |
+| 6 | Font sizes drawn only from the 9-size ladder (`editorial-technique.md` §2.10.1) |
 | 7 | Dominance ratio **≥1.6**; the banned 60/40 pairing absent |
 | 8 | **0** contrast failures — text **and** non-text (3:1 floor) |
 | 9 | No Electric or Jade on a light ground, in any role (C-01b) |
@@ -284,7 +361,7 @@ A slide is done when **all fourteen** hold. Not "mostly".
 | **Gradient direction** | Always toward a canvas **edge or corner, never the centre** |
 | **Gradient span** | ≤3 columns (**540px**) sparse to dense. Longer reads as diffuse texture, not directional assembly |
 | **Opacity floor** | **40% on Deep Jade · 50% on Pine.** Below the floor it is decoration and must never carry data. See §4.4 |
-| **Discipline** | **Statement slides only** — cover, dividers, closing — plus counted fields. Content slides **0%**. See §4.5 |
+| **Discipline** | **Statement slides only** — cover, dividers, closing — plus counted fields. Content slides **0%**. See §4.5 (open: decision-law Q-9) |
 | **Bounds** | Never crosses **y940**. Bleeds to the canvas edge at **x1920**, not x1820 — the motif is one of two exemptions from the x1820 limit, the other being full-bleed grounds |
 | **Never under text** | Enforced by construction, not by eye — see the placement algorithm, §4.6 |
 | **Markers (`+ × o`)** | Cell intersections only, ~1 per 8–12 plain modules, never adjacent |
@@ -396,7 +473,7 @@ The deck as built carried the field on **24 of 32 slides**. The master system re
 |---|---|
 | Cover / closing | 30–50% |
 | Divider | 30–47% |
-| **Content slide** | **0%** |
+| **Content slide** | **0%** (open: decision-law Q-9) |
 | Counted field (the motif *is* the data) | As the data requires — every unit above the §4.4 floor |
 
 **Decorative motif appears on statement slides only.** The one exception is the counted field, where each module is a datum — and there the opacity floor is not a guideline, it is the difference between a chart and a stain.

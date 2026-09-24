@@ -68,6 +68,59 @@ Replaces the sentence beginning *"**V2 DNA (locked visual language for the repor
 | Spine **x93** | **x100** | x93/x97/x973/x1413 are inherited −7px drift, not optical correction. Optical correction applies to the leading glyph, not the whole column |
 | Floor **y950** | **y940** | 950 is not on the 4-unit; 940 is, and leaves 42px above the footer band |
 | Right limit **x1880** | **x1820** | x1880 is the bleed margin, not a column end. Only grounds and motif may reach it |
-| Titles **100 / 200px** | **60 / 160** | 100 and 200 are off the 7-size deck ladder |
+| Titles **100 / 200px** | **60 / 160** | 100 and 200 are off the deck ladder (`editorial-technique.md` §2.10.1) |
 | Eyebrows **50px Light** | **`Caps/M` 24 +4%** | 50 is off the ladder; a 50px eyebrow against a 100px title is 2.00 dominance against a title that should be 160 |
 | Dither module **24px** | **20px** | `180 ÷ 24 = 7.5`. A 24px cell can never land on a column edge — see `layout-archetypes.md` §4.1 |
+
+---
+
+## Open client questions (raised 2026-09-24)
+
+Eight questions surfaced by a construction audit of a client deck against this skill's current rules (Q-1 to Q-8), plus one conflict between the skill's own files that the same audit exposed (Q-9). **Current rules stand until each is ruled on** — new work follows the C-number cited, not the deck's measured value. New layout entries in `layout-archetypes.md` (archetypes 15–22) and `slide-library.md` (N1–N11) that touch these questions carry the deck's value as `[M]`, labelled with the Q-number below, beside the rule-compliant spec.
+
+**Q-1 · Electric flood behind body text on a content-dense slide.** May an Electric Green flood sit behind multi-line body text on a slide that is dense with content — not a cover, divider, or minimal-text slide — the way the Detail spread archetype's (#19) colour panel does?
+Rule until ruled: **C-01** — Electric Green is never a surface behind body text; as a flood it is limited to covers, dividers, and minimal-text slides.
+Deck: a multi-line body statement sits directly on an Electric flood inside a colour panel, repeated across 5 instances of one template.
+Options: (a) hold the line — move the body copy off the flood, the panel carries icon or ≤1 short line only; (b) carve out a bounded "detail panel" exception distinct from the slide's main content column; (c) cap the flood's text to a single short line (≤6 words) so it qualifies as minimal-text.
+
+**Q-2 · Electric chips, icons and pills on light grounds.** Does the Electric-on-light ban extend to small chip fills, icon strokes and pill fills the way it already covers text, large fills and decorative blocks?
+Rule until ruled: **C-01b** — Electric and Jade never appear on a white or light ground, in any role; the accent role on light is Pine Green or Olive Green.
+Deck: numeral-chip fills, icon strokes, and one solid category-pill fill sampled Electric Green on white or pale cards, across four separate templates.
+Options: (a) hold the line — C-01b already covers this; correct every instance to Pine or Olive; (b) allow Electric at small non-text sizes (≤48px chip/icon) where a Pine outline or label still carries the contrast; (c) document a separate "chip-fill" exception distinct from the body/large-fill ban.
+
+**Q-3 · Section-colour grounds (teal, maroon, olive, navy per theme).** Should a per-topic colour-theme system — one dark ground plus a matching pale tint per topic — be adopted as new grounds, or folded into the existing four?
+Rule until ruled: **C-01c** — the ground family is all-green (Pine, Deep Jade, White, Off-white, Electric flood); Charcoal Navy is explicitly banned and removed from the system.
+Deck: two repeating templates (8 instances total) rotate dark grounds teal `#2A3D43`, maroon `#3F0C00`, olive `#333D21` and navy `#1D2A56`, each with a matching pale tint; only one instance (Pine) is on-palette.
+Options: (a) reject — rebuild every instance on Pine/Deep Jade rotation only, losing the per-topic distinction; (b) adopt a small sanctioned theme-accent set built from colours already in the palette (Olive-based variants), rejecting the rest, including navy which is separately named-banned regardless of outcome; (c) accept the full per-topic system as a new axis alongside the four grounds, formalised as its own token tier.
+
+**Q-4 · Pale-pink severity chip and its caption ink.** Is a pink/red-family fill permissible for the highest-severity item in a severity-scored list, and is the caption ink beside it on-palette?
+Rule until ruled: **C-05** — variables are the source of truth, no raw hex; the palette has no red, Vivid Orange substitutes for critical severity ("Severity is ink-density, not hue," this file, above).
+Deck: the top numeral chip in that list fills `#FCF2F9` (pale pink), a hue absent from the entire palette; the caption beside it sets `#6C737F`.
+Options: (a) hold the line — replace the pink chip with Vivid Orange (critical) per the fixed severity scale, unchanged; (b) same, and additionally reserve Orange for true-critical rows only, using Pale Sky Blue for lower-severity items; (c) on the caption specifically — `#6C737F` already resolves from the sanctioned `text/muted` token on Light mode (`token-system.md` §5.2), so this half of the finding may not need a ruling: confirm whether it's meant to read as ordinary muted body text (already compliant) or as a distinct risk-colour cue (not compliant, needs the same fix as the chip).
+
+**Q-5 · Near-black `#0D121C` ink.** Should `#0D121C` be adopted as a sanctioned dark ink for light and Electric grounds, alongside or instead of Pine and Deep Jade?
+Rule until ruled: **C-05** — no raw hex; bind to `text/primary` (Pine on Light) or the Electric-flood ink rule (Deep Jade on Electric — SKILL.md "the one rule that matters most").
+Deck: `#0D121C` recurs as the default headline/body ink on light and Electric grounds across seven pages spanning three templates, displacing both Pine and Deep Jade in that role.
+Options: (a) hold the line — correct every instance to Pine on light, Deep Jade on Electric floods; (b) note that `#0D121C` is already the system's own `text/primary` value on Light mode (`token-system.md` §5.2) — confirm whether the client wants this specific near-black as the default light-ground ink instead of Pine, which would mean re-pointing the token rather than treating every instance as a defect; (c) adopt `#0D121C` only for statement-scale type, leaving Pine for body copy and UI.
+
+**Q-6 · Framed cover inside the bleed-safe margin, logo used as cover art.** Can the cover/closer's framed construction — an asymmetric frame inset, a metadata slate sitting inside the 50px bleed-safe margin, a logo lockup used as the cover's own art — stand as built, or must it snap to the system's margins and footer-only logo rule?
+Rule until ruled: **C-03/C-09** — nothing critical sits inside the 50px bleed-safe margin or left of the x100 column start; **C-03** — the logo appears in the footer only, never a second logo in a header or corner.
+Deck: the metadata slate sits at x40/y≈37 on both the cover and the closer (inside both the bleed-safe margin and the column grid), and the logo lockup is placed as the cover's own art rather than in a footer band.
+Options: (a) hold the line — rebuild on the system's own margins: uniform 50px frame inset, metadata slate at the standard meta-field position, logo confined to the footer band even on statement slides; (b) grant statement slides (cover/closer only) an explicit exception to the bleed-safe and footer-logo rules, since they're the deck's two poster-style pages; (c) keep the 40px side/bottom inset (a smaller breach of the 50px floor) but move the metadata slate and logo fully clear of the bleed-safe zone.
+
+**Q-7 · Six-column activity-matrix grid.** Does a matrix of parallel workstreams get its own column count matched to the workstream count, or does it rebuild on the standard 8-column system?
+Rule until ruled: **C-03/C-09** — the `Advanced Presentation` 8-column grid governs new work; every structural left edge lands on a legal column start.
+Deck: one repeating template (5 instances) uses 6 evenly-pitched columns (pitch ≈303px), aligned to none of the 8 legal column starts.
+Options: (a) hold the line — rebuild on 8 columns as 4-up of 2-column cells per row, a second row for workstreams past 4; (b) rebuild on 8 columns as 2 stacked rows of uneven cell width, keeping all items on one slide; (c) grant this one archetype a documented 6-column sub-grid as a second legal grid, scoped to it alone.
+
+**Q-8 · Vertical anchors — the running eyebrow and divider titles.** Is the deck's own running-eyebrow position, well above the standard anchor, and its dividers' mid-page title placement a deliberate alternate vertical law, or drift to correct?
+Rule until ruled: `layout-archetypes.md` §0.5 — eyebrow top y120 and title top y168 on every running slide, deviation 0px; eyebrow y470/title y518 on statement slides (covers, dividers, closing).
+Deck: the running eyebrow/breadcrumb sits at y≈39–65 across nearly every page, with no text at the y168 title anchor on most running pages; the two dividers place their eyebrow/title at roughly y410–710 and y320–800, not y470/518.
+Options: (a) hold the line — rebuild every running eyebrow at y120 and every divider title at y470/518, matching the Quiet divider variant (`layout-archetypes.md`, under #2; `slide-library.md` N11); (b) adopt the deck's higher eyebrow (y≈39–65) as a second legal running-page anchor, formalised as its own row in §0.5.1; (c) treat the divider's mid-page placement as legitimate only where there's no motif field to visually balance against (the Quiet divider case specifically), keeping y470/518 for every motif-bearing divider.
+
+**Q-9 · Motif on content slides.** `SKILL.md` says **0%** on content slides (decorative motif only on statement slides and counted fields); `layout-archetypes.md` §4 says **≤20% of canvas** on content slides; the 36-slide library measures a median coverage of **0.027**, with a shallow edge band on most content slides (`slide-library.md` §3). Which is law?
+Rule until ruled: none. Both texts stand, each flagged "(open: decision-law Q-9)" at the point of use: `SKILL.md`'s motif Coverage row, and `layout-archetypes.md`'s Coverage ceiling row, Discipline row and §4.5 content-slide row. New archetypes 15–22 specify "none, or a shallow edge field, per open Q-9" wherever a content slide would carry a field.
+Measured: 31 of 36 library slides carry a field, the dominant shape is a shallow top band h200–360 anchored to the outer canvas edge, and median slide coverage is 0.027 (`layout-archetypes.md` §4.3.1).
+Options: (a) **0% strict** — content slides carry no decorative field; the library's content-slide bands are drift to remove; (b) **a shallow edge field, ≤20% of canvas**, anchored to an outer canvas edge, never under text and never inside a chart area, which is what the library already does; (c) other — for example (b) with a lower ceiling set from the measured distribution.
+
+Each Q is cited from its matching entry in `layout-archetypes.md` (archetypes 15–22 and §1.1) and `slide-library.md` (N1–N11), so a reader meets the open question at the point of use rather than only here.
