@@ -313,8 +313,7 @@ export const tokens = {
       "280": {
         "size": 280,
         "leading": 0.9,
-        "tracking": -2.5,
-        "status": "pending-figma"
+        "tracking": -2.5
       },
       "240": {
         "size": 240,
@@ -334,8 +333,7 @@ export const tokens = {
       "120": {
         "size": 120,
         "leading": 0.9,
-        "tracking": -2.5,
-        "status": "pending-figma"
+        "tracking": -2.5
       },
       "60": {
         "size": 60,

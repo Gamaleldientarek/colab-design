@@ -1,6 +1,6 @@
 {
   "name": "colab-design",
-  "version": "4.4.0",
+  "version": "4.4.1",
   "description": "The Colab design system. Palette with verified contrast rules, type scale, the 8-column slide grid, 22 layout archetypes, the pixel and dither graphic language, the four-ground token system, EN/AR build rules.",
   "author": {
     "name": "Gamal Eldien",
