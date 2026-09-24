@@ -100,7 +100,7 @@ class TypeTests(unittest.TestCase):
             with self.subTest(scale=scale):
                 self.assertEqual([t["$value"] for _, t in children(self.TYPO[scale.lower()])], documented)
         pending = [s for s, t in children(self.TYPO["display"]) if t.get("status") == "pending-figma"]
-        self.assertEqual(pending, ["280", "120"])
+        self.assertEqual(pending, [], "every Display step exists in Figma since 2026-09-25")
 
     def test_leading_follows_the_documented_rule(self):
         display = re.search(r"×(\d\.\d+) at ≥(\d+)px · ×(\d\.\d+) below", SKILL).groups()

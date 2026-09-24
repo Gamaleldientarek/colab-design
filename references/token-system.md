@@ -22,18 +22,18 @@ The second failure was that two modes cannot describe four grounds. The deck rot
 
 ---
 
-## 2. The five collections
+## 2. The six collections
 
 | # | Collection | Modes | Vars | Holds |
 |---|---|---|---|---|
-| **01** | `01 Primitives` | Value | **288** | Raw values. Every hex, every number. Never bound to a node |
+| **01** | `01 Primitives` | Value | **294** | Raw values. Every hex, every number. Never bound to a node |
 | **02** | `02 Semantic` | **Light · Jade · Dark · Electric** | **91** | Roles. The only tier that knows about grounds |
 | **03** | `03 Component` | Value | **65** | Named deck parts. Aliases semantic, one hop, no logic |
-| **04** | `04 Typography` | **EN · AR** | **41** | Family, weight, size, leading, tracking |
+| **04** | `04 Typography` | **EN · AR** | **49** | Family, weight, size, leading, tracking |
 | **05** | `05 Canvas` | Value | **15** | Grid, slide and motif geometry |
 | **06** | `06 Strings` | **EN · AR** | 4 | Footer and chrome copy |
 
-Total **504**. The dependency runs one way and never loops:
+Total **518** (measured 2026-09-25). The dependency runs one way and never loops:
 
 ```
 01 Primitives  ──►  02 Semantic  ──►  03 Component  ──►  node
@@ -63,7 +63,7 @@ Measured across the 83 template slides as of 2026-08-08: **Jade 39 · Dark 25 ·
 
 ---
 
-## 4. Tier 1 — Primitives (288)
+## 4. Tier 1 — Primitives (294)
 
 Raw values, `hiddenFromPublishing: true`, scoped so none of them appear in a designer's picker. **Nothing on a slide binds here.**
 
@@ -223,7 +223,7 @@ One hop, no logic. A component token exists so a deck part can be **renamed or r
 
 ---
 
-## 7. Tier 4 — Typography (41), EN / AR
+## 7. Tier 4 — Typography (49), EN / AR
 
 Family, weight, size, leading and tracking. **Modes are languages, not grounds.**
 
@@ -231,13 +231,13 @@ Family, weight, size, leading and tracking. **Modes are languages, not grounds.*
 |---|---|---|
 | `family/display` `family/body` | Inter | Alexandria |
 | `weight/*` | Light · Regular · Medium · Semi Bold · Bold · Black | same |
-| `size/display/*` | 240 · 200 · 160 · 60 · 40 · 30 | **identical to EN** |
+| `size/display/*` | 280 (`2xl`) · 240 · 200 · 160 · 120 (`s-plus`) · 60 · 40 · 24 (`2xs`) · 20 (`3xs`) · 16 (`text`) | **identical to EN** |
 | `size/body/*` | 40 · 36 · 28 · 24 · 20 · 16 · 12 | **identical to EN** |
-| `leading/display/*` | 216 · 180 · 144 · 57 · 38 · 28.5 | 360 · 300 · 240 · 90 · 60 · 45 |
+| `leading/display/*` | 252 · 216 · 180 · 144 · 108 · 57 · 38 · 22.8 · 19 · 15.2 | 420 · 360 · 300 · 240 · 180 · 90 · 60 · 36 · 30 · 24 |
 | `leading/body/*` | 54 · 48.6 · 37.8 · 32.4 · 27 · 21.6 · 16.2 | 60 · 54 · 42 · 36 · 30 · 24 · 18 |
 | `tracking/*` | −2.5 … −1.1, caps +4 / +6 | **0 throughout** |
 
-**Display 280 and 120: specified 2026-09-24, pending in Figma `04 Typography`.** The skill's type scale gained both steps on that date. The variables do not exist in the file yet, so every count in this file (41 in `04 Typography`, 20 `size/font/*` primitives, 504 in total) still describes the file as it is. When they are built they take `size/display/*` 280 and 120, identical in EN and AR, with `leading/display/*` **252 / 108** in EN (×0.90) and **420 / 180** in AR (×1.5), plus the matching `size/font/*` primitives and the proposed styles `Display/2XL` and `Display/S+`. Until then a 280 or 120 text node has no style or variable to bind to, so it fails pass-gate #13 (`layout-archetypes.md` §8) until they exist.
+**Figma sync, 2026-09-25 `[M]`.** Display 280 (`size/display/2xl`) and 120 (`size/display/s-plus`) now exist in `04 Typography`, with EN leading ×0.90 (252, 108) and AR ×1.5 (420, 180), and as the text styles `Display/2XL`, `Display/S+`, `AR/Display/2XL`, `AR/Display/S+`. `size/display/2xs` held an orphan **30** that no style or node used; it now holds **24**, the size of the `Display/2XS` style it is named for, and `3xs` (20) and `text` (16) were added so every Display style has a variable. See §14 for the text-style rebind done the same day.
 
 **Sizes are identical across EN and AR. Only leading and tracking move.** Arabic is ~10% *narrower* than Latin, not smaller — any measurement suggesting a size step-up is a stale-layout artifact.
 
@@ -423,6 +423,11 @@ Text contrast went **168 → 0** across 2,232 nodes.
 ---
 
 ## 14. Known constraints
+
+**Text styles were still bound to the deleted `numbers 🔢` collection (found and fixed 2026-09-25) `[M]`.** The 2026-08-08 migration moved the variables but never re-pointed the text styles: all 38 styles bound `fontSize` and `lineHeight` to 35 `numbers 🔢` variables that still resolved after the collection left the file. They are now bound to `04 Typography`. Three consequences to know:
+- **Arabic styles bind leading to fixed ×1.5 primitives, not to the AR mode.** Every one of the 567 text nodes using an `AR/*` style sat in a frame resolving `04 Typography` to **EN**, so binding them to the moded leading would have collapsed Arabic to ×0.90. The file therefore runs Arabic on a parallel `AR/*` style set, not on the AR mode this file describes. Moving to the mode means setting AR on every Arabic frame first, then rebinding.
+- **Body styles keep leading as 135%, unbound.** Binding them to the pixel variables (32.4 etc.) re-rounded 549 text nodes by about 1px per line, so the percentage stays until a deliberate reflow is accepted.
+- **`Display/M` leading was 165px, unbound;** it is now 144 (×0.90). It was the only change visible on the canvas: 26 nodes. Every other styled text node (4,303) measured the same height before and after.
 
 Two are structural and will not be fixed by more binding — they are properties of the palette.
 

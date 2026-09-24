@@ -392,10 +392,10 @@ Four peaks, each followed within one slide by a 1 or 2. Six voids, evenly spread
 
 | Role | Size | LH | Tracking | Style |
 |---|---|---|---|---|
-| Extreme hero / cropped numeral | **280** | 0.90 | −2.5% | `Display/2XL` *(proposed name)* |
+| Extreme hero / cropped numeral | **280** | 0.90 | −2.5% | `Display/2XL` |
 | Hero numeral | **240** | 0.90 | −2.5% | `Display/XL` |
 | Statement title — cover, divider, closing | **160** | 0.90 | −2.5% | `Display/M` |
-| Full-bleed statement (Statement slide archetype only) | **120** | 0.90 | −2.5% | `Display/S+` *(proposed name)* |
+| Full-bleed statement (Statement slide archetype only) | **120** | 0.90 | −2.5% | `Display/S+` |
 | Running title | **60** | 0.95 | −2.2% | `Display/S` |
 | Primary claim (body text, per archetype 3) | **40** | **1.35** | −2.2% (Inter formula at 40px, §2.3) | Body 40, no named style yet |
 | Body | **24** | **1.35** | −2.0% | `Body/M` |

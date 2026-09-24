@@ -1,5 +1,19 @@
 # Changelog
 
+## 4.4.1 — 2026-09-25
+
+Patch. The skill now describes the Figma file as it is, after a read of the file and a fix made in it the same day with the owner's approval.
+
+### Changed — in the live file
+- **All 38 text styles were still bound to the deleted `numbers 🔢` collection.** The 2026-08-08 migration had moved the variables but not the styles. They are now bound to `04 Typography`. Arabic styles bind leading to fixed ×1.5 primitives, because all 567 Arabic-styled text nodes sit in frames that resolve to the EN mode; Body styles keep 135% leading unbound, because binding the pixel values re-rounded 549 nodes. Only 26 `Display/M` nodes changed on the canvas, leading 165 → 144 (×0.90); every other styled text node measured the same height before and after. Named versions were saved before and after
+- **Display 280 and 120 are built** as variables (`size/display/2xl`, `size/display/s-plus`, EN and AR leading) and as the styles `Display/2XL`, `Display/S+`, `AR/Display/2XL`, `AR/Display/S+`
+- `size/display/2xs` held an unused **30**; it now holds 24, the size of the style it is named for, and `3xs` (20) and `text` (16) were added
+- Every Display and Body style description now states its real leading (the Body descriptions still said ×1.16)
+
+### Changed — in the skill
+- `token-system.md`: six collections, counts 294 / 91 / 65 / **49** / 15 / 4, total **518**; §7 lists the full Display scale; §14 records the rebind and what it could not do (Arabic runs on the parallel `AR/*` styles, not the AR mode)
+- `SKILL.md`, `editorial-technique.md`, `assets/tokens`: 280 and 120 are no longer "pending in Figma"; the style names are final
+
 ## 4.4.0 — 2026-09-24
 
 Minor. Ships what 4.3.0 described but did not show: rendered A4 posters, an example slide for every new archetype, ready-to-use design tokens, and the dither engine as a documented tool. The Arabic example copy was reviewed and rewritten. Nothing previously correct becomes wrong.
