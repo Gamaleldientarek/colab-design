@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>15 — Framed Poster Cover</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1920px; height:1080px; overflow:hidden; }
+  body {
+    position:relative; width:1920px; height:1080px;
+    background:#103A21; /* Pine frame, full bleed */
+    font-family:'Inter', sans-serif; -webkit-font-smoothing:antialiased;
+  }
+  .stage { position:absolute; inset:0; }
+  .flood {
+    position:absolute; left:50px; top:50px; width:1820px; height:980px;
+    background:#34FF67; /* Electric flood, inset 50 uniformly */
+  }
+  .eyebrow {
+    position:absolute; left:100px; top:470px;
+    font-size:24px; line-height:1.2; font-weight:600;
+    color:#011E14; text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .title {
+    position:absolute; left:100px; top:518px; width:1200px;
+    font-size:280px; font-weight:900; color:#011E14;
+    line-height:0.90; letter-spacing:-0.025em; white-space:nowrap;
+  }
+  .meta { position:absolute; left:100px; top:816px; width:1620px; height:32px; }
+  .meta .field {
+    position:absolute; top:0; height:32px;
+    font-size:16px; font-weight:500; color:#011E14; letter-spacing:-0.011em;
+  }
+  .meta .field .label {
+    display:block; font-size:12px; font-weight:600; text-transform:uppercase;
+    letter-spacing:0.06em; color:rgba(1,30,20,0.65); margin-bottom:4px;
+  }
+  .logo { position:absolute; left:100px; top:1043px; width:110px; height:auto; }
+  .motif-field { position:absolute; left:0; top:0; width:1920px; height:1080px; overflow:visible; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="flood"></div>
+    <div class="eyebrow">Field Report &middot; Round 02</div>
+    <div class="title">Trust.</div>
+    <div class="meta">
+      <div class="field" style="left:0px;"><span class="label">Study</span>Checkout Usability</div>
+      <div class="field" style="left:380px;"><span class="label">Round</span>02</div>
+      <div class="field" style="left:660px;"><span class="label">Date</span>September 2026</div>
+    </div>
+    <img class="logo" src="../../../logo/colab-wordmark-electric-green.svg" alt="colab.">
+    <div class="motif-field" id="field"></div>
+  </div>
+  <script src="../../../motif/motif.js"></script>
+  <script>
+    document.fonts.ready.then(function () {
+      const titleRect = document.querySelector('.title').getBoundingClientRect();
+      const eyebrowRect = document.querySelector('.eyebrow').getBoundingClientRect();
+      const metaRect = document.querySelector('.meta').getBoundingClientRect();
+      ColabMotif.renderDitherField(document.getElementById('field'),
+        { x: 1380, y: 50, w: 490, h: 980 },
+        {
+          dir: 'right', targetFill: 0.19, color: '#011E14', opacity: 0.65, seed: 15, markerEvery: 9,
+          exclude: [
+            { x: titleRect.x, y: titleRect.y, w: titleRect.width, h: titleRect.height },
+            { x: eyebrowRect.x, y: eyebrowRect.y, w: eyebrowRect.width, h: eyebrowRect.height },
+            { x: metaRect.x, y: metaRect.y, w: metaRect.width, h: metaRect.height }
+          ]
+        });
+      document.body.setAttribute('data-ready', '1');
+    });
+  </script>
+</body>
+</html>

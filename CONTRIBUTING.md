@@ -91,11 +91,13 @@ The tests in `tests/` also check that links and repo paths resolve, README and S
 
 ## Regenerating the vendored assets
 
+Design tokens: edit `assets/tokens/tokens.json`, then run `python3 scripts/build-tokens.py` to regenerate `tokens.css` and `tokens.js`. `tests/test_tokens.py` fails if the generated files are stale or if a token disagrees with `SKILL.md`, `colors.md` or `token-system.md`.
+
 ```bash
 python3 scripts/vendor-hugeicons.py      # re-vendor Hugeicons at a pinned version
 python3 scripts/rebuild-icon-index.py    # rebuild the index from assets/icons/
 ```
 
-The example slides in `assets/examples/` are rendered from `assets/examples/src/`: one HTML page per slide at 1920×1080 plus `motif.js`, the dither engine (20 px module, hashed cell selection, density per §4 of `layout-archetypes.md`, text boxes excluded with 40 px clearance). Open a page in a headless browser after fonts load, screenshot at 1920×1080, and rebuild `strip.png` from the six. Re-render whenever a rule the slides show changes.
+The example slides in `assets/examples/` are rendered from `assets/examples/src/`, `assets/examples/archetypes/src/` and `assets/examples/posters/src/`: one HTML page per slide or poster, using `assets/motif/motif.js`, the dither engine (see `assets/motif/README.md`) (20 px module, hashed cell selection, density per §4 of `layout-archetypes.md`, text boxes excluded with 40 px clearance). Open a page in a headless browser after fonts load, screenshot at 1920×1080, and rebuild `strip.png` from the six. Re-render whenever a rule the slides show changes.
 
 Logos and shapes are exported from the Figma component sets by hand. `assets/figma-export-manifest.json` records the source variant, size and colour of every SVG so an export can be verified against its origin. Update the manifest in the same change as the export; the tests compare byte counts and colours.

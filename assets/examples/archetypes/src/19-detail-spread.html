@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>19 — Detail Spread</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1920px; height:1080px; overflow:hidden; }
+  body {
+    position:relative; width:1920px; height:1080px;
+    background:#011E14; /* Deep Jade ground */
+    font-family:'Inter', sans-serif; -webkit-font-smoothing:antialiased;
+  }
+  .stage { position:absolute; inset:0; }
+  .eyebrow {
+    position:absolute; left:100px; top:120px;
+    font-size:24px; line-height:1.2; font-weight:500;
+    color:#34FF67; text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .title {
+    position:absolute; left:100px; top:168px; width:880px;
+    font-size:60px; font-weight:700; color:#FFFFFF;
+    line-height:0.95; letter-spacing:-0.022em;
+  }
+  .body {
+    position:absolute; left:100px; top:300px; width:880px;
+    font-size:24px; font-weight:400; color:rgba(255,255,255,0.8);
+    line-height:1.35; letter-spacing:-0.020em; white-space:nowrap;
+  }
+  .card {
+    position:absolute; top:700px; height:204px;
+    background:#013324; padding:28px 24px;
+  }
+  .card .stat {
+    font-size:60px; font-weight:800; color:#34FF67;
+    line-height:0.90; letter-spacing:-0.025em;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+  .card .clabel {
+    margin-top:16px; width:100%;
+    font-size:16px; font-weight:400; color:rgba(255,255,255,0.8);
+    line-height:1.35; letter-spacing:-0.011em;
+  }
+  .panel {
+    position:absolute; left:1200px; top:50px; width:620px; height:890px;
+    background:#F9FAFB; /* stops at the content floor y940, clear of the footer band */
+  }
+  .icon { position:absolute; left:1264px; top:400px; color:#103A21; }
+  .ptext {
+    position:absolute; left:1264px; top:476px; width:492px;
+    font-size:24px; font-weight:500; color:#103A21;
+    line-height:1.35; letter-spacing:-0.014em; white-space:nowrap;
+  }
+  .footer { position:absolute; left:0; top:982px; width:1920px; height:98px; }
+  .footer .logo { position:absolute; left:100px; top:36px; width:110px; height:auto; }
+  .footer .page {
+    position:absolute; right:100px; top:40px;
+    font-size:16px; font-weight:500; color:rgba(255,255,255,0.8);
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="eyebrow">Detail &middot; Search &amp; Discovery</div>
+    <div class="title">Search &amp; Discovery</div>
+    <div class="body">Search returns results, but rarely the right ones.</div>
+
+    <div class="card" style="left:100px; width:327px;">
+      <div class="stat">62%</div>
+      <div class="clabel">abandon after two empty searches</div>
+    </div>
+    <div class="card" style="left:467px; width:327px;">
+      <div class="stat">0</div>
+      <div class="clabel">typo-tolerant queries in the catalog</div>
+    </div>
+    <div class="card" style="left:834px; width:326px;">
+      <div class="stat">3&times;</div>
+      <div class="clabel">more filter resets than any other step</div>
+    </div>
+
+    <div class="panel"></div>
+    <svg class="icon" width="48" height="48" viewBox="0 0 24 24" fill="none">
+      <path d="M17 17L21 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"/>
+      <path d="M19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.25"/>
+    </svg>
+    <div class="ptext">Search is the first filter users trust.</div>
+
+    <div class="footer">
+      <img class="logo" src="../../../logo/colab-wordmark-electric-green.svg" alt="colab.">
+      <div class="page">19</div>
+    </div>
+  </div>
+  <script>
+    document.fonts.ready.then(function () {
+      document.body.setAttribute('data-ready', '1');
+    });
+  </script>
+</body>
+</html>

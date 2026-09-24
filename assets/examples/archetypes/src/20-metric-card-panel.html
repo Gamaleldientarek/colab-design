@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>20 — Metric Card Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1920px; height:1080px; overflow:hidden; }
+  body {
+    position:relative; width:1920px; height:1080px;
+    background:#FFFFFF; /* Light ground */
+    font-family:'Inter', sans-serif; -webkit-font-smoothing:antialiased;
+  }
+  .stage { position:absolute; inset:0; }
+  .band { position:absolute; left:0; top:300px; width:1920px; height:430px; background:#F9FAFB; }
+  .eyebrow {
+    position:absolute; left:100px; top:120px;
+    font-size:24px; line-height:1.2; font-weight:500;
+    color:#103A21; text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .title {
+    position:absolute; left:100px; top:168px; width:1400px;
+    font-size:60px; font-weight:700; color:#103A21;
+    line-height:0.95; letter-spacing:-0.022em;
+  }
+  .icard {
+    position:absolute; top:360px; width:500px; height:320px;
+    background:#103A21; padding:32px;
+  }
+  .icard .stat {
+    font-size:60px; font-weight:800; color:#FFFFFF;
+    line-height:0.90; letter-spacing:-0.025em;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+  .icard .ilabel {
+    margin-top:20px; width:420px;
+    font-size:20px; font-weight:400; color:#FFFFFF;
+    line-height:1.35; letter-spacing:-0.014em;
+  }
+  .listhead {
+    position:absolute; font-size:16px; font-weight:600; color:#103A21;
+    text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .prow {
+    position:absolute; width:1280px; height:24px;
+    font-size:20px; font-weight:400; color:#103A21; letter-spacing:-0.017em;
+  }
+  .prow .dot { display:inline-block; width:8px; height:8px; background:#066120; margin-right:14px; }
+  .srow { position:absolute; left:1420px; width:400px; height:32px; }
+  .srow .schip {
+    position:absolute; left:0; top:2px; width:88px; height:28px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:700; letter-spacing:0.04em; color:#FFFFFF;
+  }
+  .srow .sdesc {
+    position:absolute; left:104px; top:5px; width:296px;
+    font-size:16px; font-weight:400; color:#103A21; letter-spacing:-0.011em;
+  }
+  .footer { position:absolute; left:0; top:982px; width:1920px; height:98px; }
+  .footer .logo { position:absolute; left:100px; top:36px; width:110px; height:auto; }
+  .footer .page {
+    position:absolute; right:100px; top:40px;
+    font-size:16px; font-weight:500; color:#4D5761;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="band"></div>
+    <div class="eyebrow">Metrics Overview</div>
+    <div class="title">Where Checkout Stands Today</div>
+
+    <div class="icard" style="left:100px;">
+      <div class="stat">42%</div>
+      <div class="ilabel">of sessions stall at the payment step</div>
+    </div>
+    <div class="icard" style="left:660px;">
+      <div class="stat">18s</div>
+      <div class="ilabel">average time lost re-entering card details</div>
+    </div>
+    <div class="icard" style="left:1220px;">
+      <div class="stat">3.4&times;</div>
+      <div class="ilabel">more errors on mobile than on desktop</div>
+    </div>
+
+    <div class="listhead" style="left:100px; top:760px;">What&rsquo;s Working</div>
+    <div class="prow" style="left:100px; top:796px;"><span class="dot"></span>Shipping cost is shown before payment</div>
+    <div class="prow" style="left:100px; top:830px;"><span class="dot"></span>Order summary persists across every step</div>
+    <div class="prow" style="left:100px; top:864px;"><span class="dot"></span>Card scanning auto-fills the form</div>
+
+    <div class="listhead" style="left:1420px; top:760px;">Open Issues</div>
+    <div class="srow" style="top:796px;">
+      <div class="schip" style="background:#FF5A32; color:#011E14;">CRITICAL</div>
+      <div class="sdesc">Card errors show no message</div>
+    </div>
+    <div class="srow" style="top:836px;">
+      <div class="schip" style="background:#5B6B3E;">MEDIUM</div>
+      <div class="sdesc">Promo field lacks confirmation</div>
+    </div>
+    <div class="srow" style="top:876px;">
+      <div class="schip" style="background:#3C7E94;">LOW</div>
+      <div class="sdesc">No persistent scroll anchor</div>
+    </div>
+
+    <div class="footer">
+      <img class="logo" src="../../../logo/colab-wordmark-pine-green.svg" alt="colab.">
+      <div class="page">20</div>
+    </div>
+  </div>
+  <script>
+    document.fonts.ready.then(function () {
+      document.body.setAttribute('data-ready', '1');
+    });
+  </script>
+</body>
+</html>

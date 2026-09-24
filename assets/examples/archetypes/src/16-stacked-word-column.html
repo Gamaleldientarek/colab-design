@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>16 — Stacked Word Column</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1920px; height:1080px; overflow:hidden; }
+  body {
+    position:relative; width:1920px; height:1080px;
+    background:#103A21; /* Pine ground */
+    font-family:'Inter', sans-serif; -webkit-font-smoothing:antialiased;
+  }
+  .stage { position:absolute; inset:0; }
+  .prose {
+    position:absolute; left:100px; top:320px; width:620px;
+    font-size:24px; font-weight:400; color:#FFFFFF;
+    line-height:1.35; letter-spacing:-0.020em;
+  }
+  .prose.support {
+    position:absolute; left:100px; top:600px; width:620px;
+    font-size:16px; font-weight:400; color:rgba(255,255,255,0.8);
+    line-height:1.35; letter-spacing:-0.011em;
+  }
+  .word {
+    position:absolute; left:1200px; width:620px;
+    font-size:160px; font-weight:900; color:#34FF67;
+    line-height:0.90; letter-spacing:-0.025em; text-transform:uppercase;
+    white-space:nowrap;
+  }
+  .footer { position:absolute; left:0; top:982px; width:1920px; height:98px; }
+  .footer .logo { position:absolute; left:100px; top:36px; width:110px; height:auto; }
+  .footer .page {
+    position:absolute; right:100px; top:40px;
+    font-size:16px; font-weight:500; color:rgba(255,255,255,0.8);
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="prose">Participants rarely blame the price. The checkout funnel loses people at the exact point it stops explaining what happens next.</div>
+    <div class="prose support">Round 2 of the checkout usability study. Sessions recorded and independently coded by two analysts.</div>
+
+    <div class="word" style="top:320px;">Stalls</div>
+    <div class="word" style="top:540px;">Blurs</div>
+    <div class="word" style="top:760px;">Costs</div>
+
+    <div class="footer">
+      <img class="logo" src="../../../logo/colab-wordmark-electric-green.svg" alt="colab.">
+      <div class="page">16</div>
+    </div>
+  </div>
+  <script>
+    document.fonts.ready.then(function () {
+      document.body.setAttribute('data-ready', '1');
+    });
+  </script>
+</body>
+</html>

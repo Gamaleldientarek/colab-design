@@ -1,5 +1,27 @@
 # Changelog
 
+## 4.4.0 — 2026-09-24
+
+Minor. Ships what 4.3.0 described but did not show: rendered A4 posters, an example slide for every new archetype, ready-to-use design tokens, and the dither engine as a documented tool. The Arabic example copy was reviewed and rewritten. Nothing previously correct becomes wrong.
+
+### Added
+- **Design tokens**, `assets/tokens/`: `tokens.json` is the source (palette, ramps, the four grounds as modes with their semantic roles, type scales with leading and tracking, grid, motif, A4 poster grid, each group pointing at the doc it comes from). `scripts/build-tokens.py` generates `tokens.css` (custom properties, one `[data-ground]` block per mode, `:lang(ar)` leading and tracking) and `tokens.js`. `tests/test_tokens.py` fails when the generated files are stale or any token disagrees with `SKILL.md`, `colors.md` or `token-system.md`, and recomputes every documented contrast pair. Values the docs never pin down are left out, not invented; see `assets/tokens/README.md`
+- **The dither engine as a tool**, `assets/motif/motif.js` with `assets/motif/README.md`: moved out of the example sources, and extended for posters with sampling past the dense edge (`extendPastEdge`, `pixel-dither-posters.md` §3.1), corner-anchored fields, and an exact single accent marker. Every new option defaults to the old behaviour; the six existing example slides re-render byte-identical
+- **Rendered A4 posters**, `assets/examples/posters/`: P1 in English and P2, its Arabic mirror, at 2480 × 3508 px with previews, plus the inspiration-session note that preceded them
+- **An example slide for each archetype 15–22**, `assets/examples/archetypes/`, built to the current rules and shown in `EXAMPLES.md`
+- `SKILL.md` points code work at the tokens and the engine; `README.md` lists both
+
+### Changed
+- `SKILL.md` motif coverage now opens with the open question (decision-law Q-9) instead of stating 0% and flagging it at the end of the row
+- `decision-law.md` Q-2 records that `token-system.md` §5.4 (the live Figma file) and `colors.md` §2 already allow Electric fills on light, so a ruling settles three texts and one Figma variable
+- Example web addresses use `colab.example`, a reserved placeholder domain
+
+### Corrected
+- Arabic example copy, reviewed against the `jee-arabic` checklist: the slide 6 claim is rewritten verb-first as written Arabic (يتخلى معظم المستخدمين عن الشراء عند خطوة الدفع، لا عند إنشاء الحساب), its eyebrow names a usability test rather than user experience, the caption drops an equals sign, and the poster headline drops its full stop and writes the studio name in Arabic rather than a Latin word mid-sentence. The review was not a native read
+- `editorial-technique.md` §2.10.1: the primary claim is **body 40**, as archetype 3 says; the row named a display style. The ×1.35 leading set in 4.3.0 stands, and −2.2% tracking is Inter's own value at 40px
+- `slide-library.md`: N3 paragraph 1 is ≤3 lines (it said 6, against the archetype's own cap); N7 body is Body 24, not 28 (28 is for component internals); N7's right panel stops at the y940 content floor instead of running into the footer band; N8's card positions are noted as the library's established 3-up pitch
+- White on Deep Jade is **17.54:1** in `editorial-technique.md` §0 (it said 17.55; computed 17.5424)
+
 ## 4.3.0 — 2026-09-24
 
 Minor. Adds the standalone A4 pixel/dither poster as an output type, eight new layout archetypes and a quiet-divider variant from a construction audit of a client deck, two new Display steps, nine open client questions, and a three-state ledger for outside design references. It also ships rendered example slides and a shorter README. Nothing previously correct becomes wrong; one stale leading value is corrected.
