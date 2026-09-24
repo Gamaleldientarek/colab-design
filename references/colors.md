@@ -69,7 +69,7 @@ Permitted only on covers, section dividers, and minimal-text slides. **Never beh
 | Element | Permitted |
 |---|---|
 | Display headline | Pine Green · Deep Jade |
-| Short label / badge text | Deep Jade (13.91:1) · Pine Green (9.49:1) |
+| Short label / badge text | Deep Jade (13.07:1) · Pine Green (9.49:1) |
 | Icons | Pine Green · Deep Jade |
 | **Forbidden** | ⛔ White text (1.34:1) · body copy of any colour · any paragraph-length text |
 

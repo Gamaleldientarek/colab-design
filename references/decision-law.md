@@ -20,7 +20,7 @@ Standing client decisions, in force for all Colab work. These override any infer
 
 **C-03 / C-09 · `Advanced Presentation` grid governs new work.** 16:9, 1920×1080. The 37 approved V2 slides stay frozen on their legacy grid as a *style* reference only — never rebuild them from new masters.
 
-**V2 DNA — ⛔ SUPERSEDED 2026-07-27.** The x93 spine, y950 floor, x1880 limit, 100/200px titles, 50px eyebrows and 24px dither module are all retired. See **“V2 DNA (locked visual language, corrected 2026-07-27)”** at the end of this file for the current law, and `references/slide-anchors` material in `layout-archetypes.md` §0.5.
+**V2 DNA — ⛔ SUPERSEDED 2026-07-27.** The x93 spine, y950 floor, x1880 limit, 100/200px titles, 50px eyebrows and 24px dither module are all retired. See **“V2 DNA (locked visual language, corrected 2026-07-27)”** at the end of this file for the current law, and the slide-anchors material in `references/layout-archetypes.md` §0.5.
 
 **Logo appears in the footer only.** Never a second logo in a header or corner. Footer bar is a component instance at (40, 960), 1840×73, with a Ground variant per slide ground; the page-number layer is named `page-num` everywhere and matches the slide's number prefix.
 

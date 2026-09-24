@@ -37,7 +37,7 @@ Spans `[M]`: C1–C2 **400** · C1–C3 **620** · C1–C4 **840** · C1–C5 **
 | White on Pine | 12.73 |
 | Electric on Deep Jade | 13.07 |
 | Electric on Pine | 9.49 |
-| **Deep Jade on Electric** | **13.91** — use for floods, not Pine |
+| **Deep Jade on Electric** | **13.07** — use for floods, not Pine |
 | Electric on Off-white | **1.28** — worse than pure white |
 | **Pine on Deep Jade** | **1.38** — a *tonal* pair, see T-17 |
 

@@ -4,9 +4,14 @@
 
 # colab-design
 
-The Colab design system as an Agent Skill for [Claude Code](https://claude.com/claude-code).
+[![ci](https://github.com/Gamaleldientarek/colab-design/actions/workflows/ci.yml/badge.svg)](https://github.com/Gamaleldientarek/colab-design/actions/workflows/ci.yml)
+[![release](https://img.shields.io/github/v/release/Gamaleldientarek/colab-design?label=release)](references/release-history.md)
 
-Colab is a bilingual English/Arabic **User Experience Research Lab** operating in Saudi Arabia and the wider MENA region. This skill encodes its visual system — palette, typography, grid, graphic language, component specs, and Arabic/RTL rules — so any deliverable comes out on-brand without re-briefing.
+The Colab design system as an Agent Skill for [Claude Code](https://claude.com/claude-code), Cursor, Codex and Copilot.
+
+Colab is a bilingual English/Arabic **User Experience Research Lab** working in Saudi Arabia and the wider MENA region. Install this skill and your agent builds Colab decks, reports, pages and Arabic versions to the brand's measured rules, without a re-brief each time.
+
+**[See what you get →](EXAMPLES.md)** Seven real requests with the answers the skill produces: a colour check, a findings slide, a severity scale, web tokens, an Arabic mirror, an icon, and a slide review.
 
 ---
 
@@ -16,9 +21,20 @@ Colab is a bilingual English/Arabic **User Experience Research Lab** operating i
 npx skills@latest add Gamaleldientarek/colab-design -g -a claude-code -y
 ```
 
-Needs [Node.js](https://nodejs.org). Restart Claude Code; the skill loads on its own for anything Colab-branded, or call it with `/colab-design`. For Cursor, Codex or Copilot use `-a cursor`, `-a codex` or `-a github-copilot` (`-a '*'` for every tool). Update later with `npx skills@latest update -g`. Step-by-step without a terminal: [INSTALL.md](https://github.com/Gamaleldientarek/azmx/blob/main/INSTALL.md).
+Needs [Node.js](https://nodejs.org). Restart Claude Code. The skill loads on its own for anything Colab-branded, or call it with `/colab-design`.
 
-**Pinned install, without the skills CLI.** For a project that must stay on a reviewed commit, clone that commit into the project instead:
+| Tool | Flag |
+|---|---|
+| Claude Code | `-a claude-code` |
+| Cursor | `-a cursor` |
+| Codex | `-a codex` |
+| GitHub Copilot | `-a github-copilot` |
+| Every tool | `-a '*'` |
+
+Update with `npx skills@latest update -g`, then restart the agent. Step-by-step without a terminal: [INSTALL.md](https://github.com/Gamaleldientarek/azmx/blob/main/INSTALL.md).
+
+<details>
+<summary><b>Pinned install</b>, for a project that must stay on a reviewed commit</summary>
 
 ```bash
 mkdir -p .claude/skills
@@ -26,160 +42,113 @@ git clone --no-checkout https://github.com/Gamaleldientarek/colab-design.git .cl
 git -C .claude/skills/colab-design checkout --detach 20ffe419f8d7cf3a47c695b3de96996447fd86c5
 ```
 
-Needs Git. Stop if any command fails, and do not overwrite an existing folder. For Codex, use `.agents/skills` in place of `.claude/skills`. Keep your agent's normal permission prompts enabled. See [SECURITY.md](SECURITY.md) for the trust and maintenance boundaries.
+Needs Git. Stop if any command fails, and do not overwrite an existing folder. For Codex, use `.agents/skills` in place of `.claude/skills`. Keep your agent's normal permission prompts enabled.
+
+A pinned install never updates on its own. To move it, a maintainer reviews the change and supplies the new full commit ID. Preserve local changes, fetch, inspect the difference from the installed commit, check out the approved commit in detached mode, and restart the agent. Normal design use needs only the bundled rules and assets, never the maintenance scripts. See [SECURITY.md](SECURITY.md) for the trust boundaries.
+
+</details>
+
+---
+
+## What it knows
+
+| Area | In short | Full rules |
+|---|---|---|
+| **Contrast** | Electric Green is an accent on dark, never a surface behind body text. Every pairing is computed with the WCAG 2.x formula | [`colors.md`](references/colors.md) |
+| **Grounds and tokens** | Four grounds, White · Pine · Deep Jade · Electric, set as Figma variable modes. Five collections, 504 variables | [`token-system.md`](references/token-system.md) |
+| **Type** | Inter (EN) and Alexandria (AR). Display ×0.90 at 100 px and above, ×0.95 below. Body ×1.35. Arabic ×1.5 with tracking 0, from the AR mode of `04 Typography` | [`editorial-technique.md`](references/editorial-technique.md) |
+| **Grid** | 1920×1080, 8 columns of 180 px, 40 px gutters, 100 px margins, 50 px bleed-safe, footer band from y 982 | [`layout-archetypes.md`](references/layout-archetypes.md) |
+| **Layouts** | 14 archetypes, fixed vertical anchors, and a per-slide pass gate. 36 measured slides ready to reuse | [`slide-library.md`](references/slide-library.md) |
+| **Motif** | A 20 px dither field that migrates toward an edge. None on content slides, never under text | [`layout-archetypes.md`](references/layout-archetypes.md) §4 |
+| **Arabic / RTL** | Mirror transform, auto-layout reversal, re-fitted rhythm, bidi traps, 12 verification predicates | [`rtl-arabic.md`](references/rtl-arabic.md) |
+| **Icons** | Hugeicons Stroke Rounded only. 5,437 MIT-licensed SVGs vendored, with sizes, strokes and colour law | [`icons.md`](references/icons.md) |
+| **Reports** | The componentized 31-slide usability-report system | [`report-template.md`](references/report-template.md) |
+| **Client law** | Standing decisions C-01 to C-17 and the client's taste profile. Overrides anything older | [`decision-law.md`](references/decision-law.md) |
+
+### The rule that governs everything
+
+**Electric Green `#34FF67` is an accent on dark. It is never a surface behind body text.**
+
+| Electric Green on | Contrast | |
+|---|---|---|
+| White `#FFFFFF` | **1.34 : 1** | Fails every threshold, including the 3 : 1 floor for non-text marks |
+| Pine Green `#103A21` | **9.49 : 1** | AAA |
+| Deep Jade `#011E14` | **13.07 : 1** | AAA, the widest margin in the system |
+
+Decks go to CEOs, so readability outranks expression every time. Electric Green as a surface is reserved for covers, dividers and minimal-text slides.
+
+### Palette
+
+| | Hex | Role |
+|---|---|---|
+| Electric Green | `#34FF67` | The signature accent |
+| Pine Green | `#103A21` | Default dark surface, the logo's default colour |
+| Jade Green | `#33FFC2` | Secondary accent, used sparingly |
+| Grey | `#BCBEC0` | True neutral, dark grounds only |
+| Vivid Orange | `#FF5A32` | Critical severity. The palette has no red |
+| Deep Jade | `#011E14` | Deepest ground. White reads 17.54 : 1 on it |
+| Olive Green | `#5B6B3E` | Medium severity, the second accent on light |
+| Pale Sky Blue | `#B1D9E8` | Low severity |
 
 ---
 
 ## What's inside
 
+<details>
+<summary>Repository map</summary>
+
 ```
-SKILL.md                          Entry point — the rules you need on every job
+SKILL.md                          Entry point: the rules needed on every job
+EXAMPLES.md                       What the skill produces, by request
+CONTRIBUTING.md                   Where knowledge goes, versioning, the release checklist
 references/
   decision-law.md                 Standing client decision law C-01…C-17 + taste profile
   colors.md                       Full ramps, the pairing matrix, verified contrast ratios
-  token-system.md                 THE token system — 4 grounds as modes, 5 collections, 7 traps
-  figma-tokens.md                 ⛔ superseded — the retired collections, for reading old files
+  token-system.md                 THE token system: 4 grounds as modes, 5 collections, 7 traps
+  figma-tokens.md                 ⛔ superseded: the retired collections, for reading old files
   variable-architecture.md        Picker mechanics: scopes, alias repair (layout superseded)
   components.md                   Logo, Shapes, Photo-Effect, slide masters, inventory
-  logo-and-shapes.md              Every lockup and shape primitive — files, sizes, usage rules
+  logo-and-shapes.md              Every lockup and shape primitive: files, sizes, usage rules
   layout-archetypes.md            14 slide recipes, vertical anchors, motif construction, pass gate
   report-template.md              The componentized usability-report system
-  rtl-arabic.md                   Arabic/RTL build system — mirror law, auto-layout, bidi, motif
+  rtl-arabic.md                   Arabic/RTL build system: mirror law, auto-layout, bidi, motif
   slide-library.md                36 measured EN slides + the AR derivation rules
   icons.md                        Hugeicons house rules, the 43-icon working set, colour + RTL
   icon-index.md                   Every vendored icon with its download link (sharded a–z)
   research-notes.md               Hugeicons, bilingual EN/AR, category conventions
-  figma-workflow.md               Working in Figma — safety protocol, plugin API gotchas
+  figma-workflow.md               Working in Figma: safety protocol, plugin API gotchas
   editorial-technique.md          20 named techniques, tracking/leading numbers, 10 archetypes
+  release-history.md              Every release with its date, bump, commit and summary
 assets/
-  logo/                           21 logo SVGs — 7 lockups × 3 colours
-  shapes/                         40 shape SVGs — 20 primitives × brand/white
+  logo/                           21 logo SVGs, 7 lockups × 3 colours
+  shapes/                         40 shape SVGs, 20 primitives × brand/white
   icons/stroke-rounded/           5,437 Hugeicons SVGs, MIT
   figma-export-manifest.json      Source variant, size and colour for every exported SVG
 scripts/
   vendor-hugeicons.py             Re-vendor the icon set at a pinned version
   rebuild-icon-index.py           Regenerate references/icon-index.md and its shards
+  release-check.py                The release gate: version, changelog, ledger, skill header, pin
+tests/                            Integrity, contrast, release-gate and vendoring-security tests
+.github/workflows/                CI on every pull request; release on a version tag
 ```
 
----
-
-## The system in brief
-
-**Ethos —** dark green ground, one neon accent, and a pixel field that assembles itself. The brand book's own line is the concept root: *"just like building with blocks, piece by piece, insight by insight."*
-
-**Palette**
-
-| | Hex | |
-|---|---|---|
-| Electric Green | `#34FF67` | The signature accent |
-| Pine Green | `#103A21` | Default dark surface |
-| Jade Green | `#33FFC2` | Secondary accent |
-| Grey | `#BCBEC0` | True neutral |
-| Vivid Orange | `#FF5A32` | Critical severity — the palette has no red |
-| Deep Jade | `#011E14` | Deepest ground — highest contrast in the system |
-| Olive Green | `#5B6B3E` | Medium severity |
-| Pale Sky Blue | `#B1D9E8` | Low severity |
-
-**Type —** Inter (EN) · Alexandria (AR). Display 240/200/160/60/40 at **×0.90 at ≥100px, ×0.95 below**. Body 40/36/28/24/20/16 at **×1.35**. Arabic overrides to a **×1.5** floor via the AR mode of the `numbers` collection — a mode, not a parallel token set.
-
-**Grid —** 1920×1080. 8 columns × 180px, 40px gutters, 100px side margins, 50px bleed-safe, 98px footer band, 932px live content height.
-
-**Motif —** 20px base module (exactly 1/9 of a column), density migrating toward an edge, ≤3 columns of travel, ≤20% canvas coverage on content slides, never under text.
-
-**Icons —** Hugeicons, `Type=Rounded` and `Style=Stroke`, always. 5,437 MIT-licensed SVGs vendored in `assets/icons/stroke-rounded/`. Sizes 24/32/40/48/64/80 on the 8px grid. Green icons are banned on light grounds — Pine Green instead.
+</details>
 
 ---
 
-## The rule that governs everything
+## Versions and releases
 
-**Electric Green `#34FF67` is an accent on dark. It is never a surface behind body text.**
+The installed version is `version` in [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json), mirrored in `SKILL.md`. Every release has a row in **[`references/release-history.md`](references/release-history.md)** with its date, bump, commit and a one-line summary, and a full entry in **[`CHANGELOG.md`](CHANGELOG.md)** with the numbers and the reasons.
 
-| Pairing | Contrast |
-|---|---|
-| on White | **1.34 : 1** — fails every threshold, including the 3:1 non-text floor |
-| on Pine Green | **9.49 : 1** — AAA |
-| on Deep Jade | **13.07 : 1** — AAA |
+A **major** version means a published value changed, so work built to the previous major can now fail. Read that release's changelog entry before reusing older work.
 
-Decks go to CEOs. Default backgrounds are dark green or white; electric green is reserved for covers, dividers, and minimal-text moments.
-
-Ratios are computed with the WCAG 2.x relative-luminance formula, not estimated.
+Releases are gated. CI runs the tests and the release check on every pull request. Pushing a `vX.Y.Z` tag on `main` publishes a GitHub release only when the tag, `plugin.json`, the changelog, the ledger and `SKILL.md` all agree.
 
 ---
 
-## Updating the skill
+## Contributing
 
-### Updates
-
-With the skills CLI, `npx skills@latest update -g` brings every installed skill to the latest `main`. Restart the agent afterwards.
-
-A pinned install stays on its exact commit and never updates on its own. A maintainer reviews the changes and supplies the new full commit ID; fetch the repository, inspect the difference from the installed commit to the approved one, and check out that exact commit in detached mode. Preserve local changes first. Restart the agent after updating.
-
-The pinned snapshot includes the hardened maintenance scripts. Normal design use still requires only the bundled rules and assets.
-
-### Where new knowledge goes
-
-| Kind of knowledge | File |
-|---|---|
-| A client decision, or a rule the client can overrule | `references/decision-law.md` |
-| A colour, ramp, or contrast measurement | `references/colors.md` |
-| A Figma variable, a token, a mode, or which ground a slide sits on | `references/token-system.md` |
-| Why a picker shows the wrong tokens, or an alias needs repairing | `references/variable-architecture.md` |
-| Where a *retired* binding used to point (pre-2026-08-08 files) | `references/figma-tokens.md` |
-| A typographic technique with a source or a derivation | `references/editorial-technique.md` |
-| Where an edge goes on a slide — anchors, gates, motif construction | `references/layout-archetypes.md` |
-| A component's anatomy, variants, or legal overrides | `references/components.md` |
-| A Plugin API trap or a build-safety rule | `references/figma-workflow.md` |
-| A report pattern or a research-reporting convention | `references/report-template.md` |
-| Anything Arabic, RTL, mirroring, or bilingual | `references/rtl-arabic.md` |
-| A slide layout, its geometry, its motif spec, its ground | `references/slide-library.md` |
-
-`SKILL.md` is loaded on **every** invocation. A rule earns a place there only if a designer would produce failing work without it. Everything else goes in a reference and gets a pointer.
-
-### Evidence discipline
-
-`editorial-technique.md` and `layout-archetypes.md` mark every claim:
-
-- `[S]` **sourced** — from published typographic or design literature
-- `[D]` **derived** — reasoned from a sourced principle onto this grid
-- `[M]` **measured** — computed from the live Figma file or the WCAG formula
-
-Keep the marks. They are why a reader can tell a brand preference from an accessibility fact, and dropping them makes the whole file equally arguable.
-
-### Versioning
-
-| Bump | When |
-|---|---|
-| **Major** | A published value changes, so work built to the previous release now fails. v3.0.0 changed body leading ×1.16 → ×1.35 and the motif module 24px → 20px |
-| **Minor** | New references, new rules, new assets — nothing previously correct becomes wrong |
-| **Patch** | Corrections, typos, broken links |
-
-### Release checklist
-
-The step that matters most is **4**. Two false statements — "letter-spacing is `0` at every size" and display "×0.95 throughout" — survived the v2.0.0 release because the correction was *added* while the falsehood was left in place. A reader hitting the old line first has no way to know it lost.
-
-1. **Measure before writing.** A rule without a number is an opinion. Ratios come from the WCAG relative-luminance formula, geometry from `absoluteBoundingBox`, counts from a real traversal
-2. **Ratify open conflicts, once.** If two documents disagree, decide and record the decision — do not restate both and let the reader pick
-3. **Write to the destination file** per the table above
-4. **⚠️ Delete what the change supersedes.** Grep the whole skill for the old value and remove or explicitly mark every instance. Adding a correction beside a falsehood leaves both true-looking:
-   ```bash
-   grep -rn "OLD_VALUE" SKILL.md README.md references/*.md
-   ```
-5. **Sweep for residual contradictions** before tagging — the same grep, expecting zero hits
-6. **Update the affected numbers in the Figma file too.** A skill that documents a state the file contradicts recreates the defect it is describing
-7. **CHANGELOG entry** — `Added` / `Changed` / `Fixed` / `Corrected`, with the numbers and the reason. `Corrected` is for claims that were previously wrong, and it is not optional
-8. **Commit and tag**
-   ```bash
-   git add -A && git commit && git tag -a v3.2.0 -m "..." && git push origin main --tags
-   ```
-
-### Regenerating the vendored assets
-
-```bash
-python3 scripts/vendor-hugeicons.py      # re-vendor Hugeicons at a pinned version
-python3 scripts/rebuild-icon-index.py    # rebuild the index from assets/icons/
-```
-
-Logos and shapes are exported from the Figma component sets by hand; `assets/figma-export-manifest.json` records the source variant, size and colour of every SVG so an export can be verified against its origin.
+Read **[CONTRIBUTING.md](CONTRIBUTING.md)** before changing anything. It covers where new knowledge goes, the evidence marks, versioning, the release checklist, and regenerating assets. Security and access rules are in [SECURITY.md](SECURITY.md).
 
 ---
 
@@ -187,12 +156,12 @@ Logos and shapes are exported from the Figma component sets by hand; `assets/fig
 
 Derived from the client's Figma file (audited 2026-07-26), its Brand Book, and the 37 client-approved slides in `Design Slides V2`.
 
-Layout archetype coordinates are derived for this specific grid from sourced composition principles — Swiss/International Typographic Style, Tufte's data-ink discipline, Duarte's single-accent rule, MBB governing-sentence structure, and published research on executive scanning behaviour. They are Colab's own design rules, not external benchmarks. `references/layout-archetypes.md` marks every claim as sourced or derived.
+Layout archetype coordinates are derived for this grid from sourced composition principles: Swiss/International Typographic Style, Tufte's data-ink discipline, Duarte's single-accent rule, MBB governing-sentence structure, and published research on executive scanning behaviour. They are Colab's own design rules, not external benchmarks. `references/layout-archetypes.md` marks every claim as sourced or derived.
 
 ---
 
 ## Licence
 
-The tooling and documentation structure are MIT. The Colab brand assets, palette, and identity are the property of Colab and are not licensed for reuse.
+The tooling and documentation structure are MIT. The Colab brand assets, palette and identity are the property of Colab and are not licensed for reuse.
 
-The icons in `assets/icons/stroke-rounded/` are the Hugeicons free set — **MIT**, redistributed under the terms in `assets/icons/LICENSE`. Only the Stroke Rounded style is MIT. Hugeicons Pro styles (Solid, Duotone, Twotone, Bulk) and Pro types (Sharp, Standard) are **not** included here and require a [Hugeicons Pro licence](https://hugeicons.com/license-agreement).
+The icons in `assets/icons/stroke-rounded/` are the Hugeicons free set, **MIT**, redistributed under the terms in `assets/icons/LICENSE`. Only the Stroke Rounded style is MIT. Hugeicons Pro styles (Solid, Duotone, Twotone, Bulk) and Pro types (Sharp, Standard) are **not** included and require a [Hugeicons Pro licence](https://hugeicons.com/license-agreement).

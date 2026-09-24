@@ -19,7 +19,7 @@ Computed per WCAG 2.x relative luminance (`C_lin = C/12.92` if `C≤0.03928` els
 - On **white/light grounds**: Electric Green may only be a large decorative block, thick accent bar, or abstract shape. Never text, never small UI, never thin icon strokes. Substitute **Pine Green** or **Olive Green** for any text/icon role.
 - On **Pine Green or Deep Jade grounds**: Electric Green is fully usable down to body size — text, labels, fine icon strokes all clear AAA.
 - **Deep Jade is the strongest partner** (13.07:1) if maximum flexibility at small sizes is needed.
-- Electric Green floods work with **Deep Jade text** (13.91:1) — the best available pairing.
+- Electric Green floods work with **Deep Jade text** (13.07:1) — the best available pairing.
 
 **Precedent:** Cash App (saturated green on near-black) and Robinhood's 2024 rebrand (neon reduced to sparing pops on black/white/neutral, explicitly because saturated neon fails as a dominant surface) are the directly applicable models.
 
