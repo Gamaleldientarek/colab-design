@@ -14,6 +14,21 @@ Without the skill, an agent answers these from general design taste. With it, th
 | 6 | [An icon](#6-an-icon) | The exact Hugeicons name, size, stroke, colour, and file |
 | 7 | [A slide review](#7-a-slide-review) | Numbered violations with the rule each one breaks |
 
+## Example slides
+
+Six slides built to the skill's rules: the grid, vertical anchors, the four grounds, the type scale and the computed motif. The copy is placeholder research copy.
+
+| | |
+|---|---|
+| ![Cover on Deep Jade with the dither field dissolving off the right edge](assets/examples/01-cover.png) | ![Big-number hero, 62% with one comparison in Vivid Orange, on Pine](assets/examples/02-big-number.png) |
+| **1. Cover.** Archetype 1, Deep Jade ground, motif bleeding off the right edge | **2. Big number.** Archetype 5 on Jade, one comparison, motif in the margin only |
+| ![Claim and evidence on white, one Pine accent bar](assets/examples/03-claim-evidence.png) | ![Severity-rated issue list on Deep Jade](assets/examples/04-severity-list.png) |
+| **3. Claim + evidence.** Archetype 3 on white; accents are Pine, never Electric | **4. Severity list.** Archetype 10, the fixed severity scale, no motif |
+| ![Electric flood divider with Deep Jade text](assets/examples/05-divider.png) | ![Slide 3 mirrored for Arabic](assets/examples/06-arabic-mirror.png) |
+| **5. Divider.** Archetype 2, Electric flood, Deep Jade text, motif clear of every text box | **6. Arabic mirror.** Slide 3 through `x' = 1920 − x − w`, Arabic lockup, motif re-solved |
+
+## Answers the skill gives
+
 The assets it works with are real files in this repository:
 
 <p>

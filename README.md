@@ -11,6 +11,8 @@ The Colab design system as an Agent Skill. Your agent builds Colab decks, report
 
 **[See what you get →](EXAMPLES.md)**
 
+<a href="EXAMPLES.md"><img src="assets/examples/strip.png" alt="Six example Colab slides built by the skill: cover, big number, claim and evidence, severity list, divider, Arabic mirror" width="100%"></a>
+
 ## Install
 
 ```bash

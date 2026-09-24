@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>05 — Divider</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1920px; height:1080px; overflow:hidden; }
+  body {
+    position:relative; width:1920px; height:1080px;
+    background:#34FF67; /* Electric ground */
+    font-family:'Inter', sans-serif; -webkit-font-smoothing:antialiased;
+  }
+  .stage { position:absolute; inset:0; }
+  .eyebrow {
+    position:absolute; left:100px; top:470px;
+    font-size:24px; line-height:1.2; font-weight:600;
+    color:#011E14; text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .title {
+    position:absolute; left:100px; top:518px; width:1060px;
+    font-size:160px; font-weight:900; color:#011E14;
+    line-height:0.90; letter-spacing:-0.025em;
+  }
+  .section-num {
+    position:absolute; right:100px; top:120px;
+    font-size:60px; font-weight:700; color:#011E14;
+    letter-spacing:-0.022em; text-align:right;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+  .motif-field { position:absolute; left:0; top:0; width:1920px; height:1080px; overflow:visible; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="section-num">02</div>
+    <div class="eyebrow">02 &mdash; Findings</div>
+    <div class="title">Findings</div>
+    <div class="motif-field" id="field"></div>
+  </div>
+  <script src="motif.js"></script>
+  <script>
+    document.fonts.ready.then(function () {
+      // Keep-out for the top-right section number — measured, not guessed, so
+      // the field is blocked around its true ink box (§4.6) rather than an
+      // assumed one. excludePad (default 40px = 2 modules) adds the clearance
+      // on top of this rect.
+      const numRect = document.querySelector('.section-num').getBoundingClientRect();
+      ColabMotif.renderDitherField(document.getElementById('field'),
+        { x: 1500, y: 0, w: 420, h: 940 },
+        {
+          dir: 'right', targetFill: 0.18, color: '#103A21', opacity: 0.65, seed: 5, markerEvery: 9,
+          exclude: [{ x: numRect.x, y: numRect.y, w: numRect.width, h: numRect.height }]
+        });
+      document.body.setAttribute('data-ready', '1');
+    });
+  </script>
+</body>
+</html>

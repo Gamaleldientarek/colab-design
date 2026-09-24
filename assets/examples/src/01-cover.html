@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>01 — Cover</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1920px; height:1080px; overflow:hidden; }
+  body {
+    position:relative;
+    width:1920px; height:1080px;
+    background:#011E14; /* Deep Jade ground */
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .stage { position:absolute; inset:0; }
+  .logo { position:absolute; left:100px; top:88px; width:180px; height:auto; }
+  .eyebrow {
+    position:absolute; left:100px; top:470px;
+    font-size:24px; line-height:1.2; font-weight:500;
+    color:#34FF67; text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .title {
+    position:absolute; left:100px; top:518px; width:1060px;
+    font-size:160px; font-weight:900; color:#FFFFFF;
+    line-height:0.90; letter-spacing:-0.025em;
+  }
+  .meta {
+    position:absolute; left:100px; top:894px;
+    font-size:20px; font-weight:400; color:rgba(255,255,255,0.8);
+    line-height:1.35; letter-spacing:-0.011em;
+  }
+  .motif-field { position:absolute; left:0; top:0; width:1920px; height:1080px; overflow:visible; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <img class="logo" src="../../logo/colab-wordmark-electric-green.svg" alt="colab.">
+    <div class="eyebrow">Usability Research Report</div>
+    <div class="title">Checkout Is Losing Trust</div>
+    <div class="meta">Checkout Usability Study &middot; Round 2 &middot; September 2026</div>
+    <div class="motif-field" id="field"></div>
+  </div>
+  <script src="motif.js"></script>
+  <script>
+    document.fonts.ready.then(function () {
+      ColabMotif.renderDitherField(document.getElementById('field'),
+        { x: 1500, y: 0, w: 420, h: 940 },
+        { dir: 'right', targetFill: 0.30, color: '#34FF67', opacity: 0.5, seed: 1, markerEvery: 10 });
+      document.body.setAttribute('data-ready', '1');
+    });
+  </script>
+</body>
+</html>

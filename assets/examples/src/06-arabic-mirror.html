@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>06 — Arabic Mirror of 03</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Alexandria:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1920px; height:1080px; overflow:hidden; }
+  body {
+    position:relative; width:1920px; height:1080px;
+    background:#FFFFFF; /* Light ground — mirrors slide 03 */
+    font-family:'Inter', sans-serif; -webkit-font-smoothing:antialiased;
+  }
+  .stage { position:absolute; inset:0; }
+  .ar { font-family:'Alexandria', sans-serif; direction:rtl; unicode-bidi:isolate; letter-spacing:0; }
+  .num { font-family:'Inter', sans-serif; direction:ltr; unicode-bidi:embed; }
+
+  /* Eyebrow — mirrors x100/w~280 (C1) to right edge x1820 (C8), auto-width right-anchored */
+  .eyebrow {
+    position:absolute; right:100px; top:120px;
+    font-size:24px; line-height:1.2; font-weight:500;
+    color:#103A21; text-align:right;
+  }
+  /* Claim — mirrors C1–C3 (x100,w620) to C6–C8 (x1200,w620) */
+  .claim {
+    position:absolute; right:100px; top:320px; width:620px;
+    font-size:40px; font-weight:500; color:#103A21;
+    line-height:1.5; letter-spacing:0; text-align:right;
+  }
+  .caption {
+    position:absolute; right:100px; top:524px; width:600px;
+    font-size:16px; font-weight:400; color:#6C737F;
+    line-height:1.5; text-align:right;
+  }
+  /* Evidence — mirrors C4–C8 (x760,w1060) to C1–C5 (x100,w1060) */
+  .chart-head {
+    position:absolute; right:760px; top:244px;
+    font-size:16px; font-weight:600; color:#4D5761; text-align:right;
+  }
+  .axis { position:absolute; left:100px; top:700px; width:1060px; height:1px; background:#E5E7EB; }
+  .bar { position:absolute; top:0; height:700px; width:160px; }
+  .bar .fill { position:absolute; bottom:0; left:0; width:100%; }
+  .bar .value {
+    position:absolute; left:0; width:100%; text-align:center;
+    font-size:20px; font-weight:600; color:#103A21;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+  .bar .cat {
+    position:absolute; top:712px; left:0; width:100%; text-align:center;
+    font-size:16px; font-weight:400; color:#4D5761;
+  }
+  .footer { position:absolute; left:0; top:982px; width:1920px; height:98px; }
+  .footer .logo { position:absolute; right:100px; top:13px; height:72px; width:auto; }
+  .footer .page {
+    position:absolute; left:100px; top:40px;
+    font-size:16px; font-weight:500; color:#4D5761;
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+  .motif-field { position:absolute; left:0; top:0; width:1920px; height:1080px; overflow:visible; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="eyebrow ar">نتيجة تجربة الاستخدام</div>
+    <div class="claim ar">معظم حالات التخلي عن الشراء تحدث عند خطوة الدفع، وليس عند إنشاء الحساب.</div>
+    <div class="caption ar">تحليل تسجيلات الجلسات، مسار الدفع &middot; العدد = <span class="num">42</span> جلسة</div>
+
+    <div class="chart-head ar">التخلي حسب خطوة الدفع</div>
+    <div class="axis"></div>
+
+    <!-- Cart — rightmost (first read, RTL) -->
+    <div class="bar" style="left:960px;">
+      <div class="value num" style="top:600px;">8%</div>
+      <div class="fill" style="height:60px; background:#6C737F;"></div>
+      <div class="cat ar">السلة</div>
+    </div>
+    <!-- Shipping -->
+    <div class="bar" style="left:740px;">
+      <div class="value num" style="top:560px;">14%</div>
+      <div class="fill" style="height:100px; background:#6C737F;"></div>
+      <div class="cat ar">الشحن</div>
+    </div>
+    <!-- Payment — accent -->
+    <div class="bar" style="left:520px;">
+      <div class="value num" style="top:348px;">42%</div>
+      <div class="fill" style="height:312px; background:#103A21;"></div>
+      <div class="cat ar">الدفع</div>
+    </div>
+    <!-- Confirmation — leftmost (last read) -->
+    <div class="bar" style="left:300px;">
+      <div class="value num" style="top:616px;">6%</div>
+      <div class="fill" style="height:45px; background:#6C737F;"></div>
+      <div class="cat ar">التأكيد</div>
+    </div>
+
+    <div class="footer">
+      <img class="logo" src="../../logo/colab-wordmark-plus-tagline-ar-pine-green.svg" alt="colab. — كولاب مختبر تجربة المستخدم">
+      <div class="page num">06</div>
+    </div>
+    <div class="motif-field" id="field"></div>
+  </div>
+  <script src="motif.js"></script>
+  <script>
+    document.fonts.ready.then(function () {
+      // Re-solved for the Arabic layout — the chart now occupies C1–C5, so its
+      // outer/far edge (away from the claim block, nearest the canvas edge) is
+      // C1, not C8. Density therefore migrates toward the LEFT canvas edge —
+      // derived from geometry, not mirrored from the EN field. See rtl-arabic.md §8.
+      ColabMotif.renderDitherField(document.getElementById('field'),
+        { x: 100, y: 760, w: 180, h: 160 },
+        { dir: 'left', targetFill: 0.15, color: '#103A21', opacity: 0.6, seed: 6, markerEvery: 8 });
+      document.body.setAttribute('data-ready', '1');
+    });
+  </script>
+</body>
+</html>
