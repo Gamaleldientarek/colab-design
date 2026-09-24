@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>02 — Big Number</title>
+<title>17 — Statement Slide</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
   html,body { width:1920px; height:1080px; overflow:hidden; }
   body {
     position:relative; width:1920px; height:1080px;
-    background:#103A21; /* Pine Green / Jade ground */
+    background:#103A21; /* Pine ground */
     font-family:'Inter', sans-serif; -webkit-font-smoothing:antialiased;
   }
   .stage { position:absolute; inset:0; }
@@ -20,23 +20,12 @@
     font-size:24px; line-height:1.2; font-weight:500;
     color:#34FF67; text-transform:uppercase; letter-spacing:0.04em;
   }
-  .numeral {
-    position:absolute; left:320px; top:220px; width:1080px;
-    font-size:560px; font-weight:900; color:#FFFFFF;
+  .statement {
+    position:absolute; left:100px; top:380px; width:1280px;
+    font-size:120px; font-weight:900; color:#34FF67;
     line-height:0.90; letter-spacing:-0.025em;
-    font-variant-numeric: tabular-nums lining-nums;
   }
-  .label {
-    position:absolute; left:320px; top:788px;
-    font-size:28px; font-weight:600; color:#FFFFFF;
-    line-height:1.35; letter-spacing:-0.011em;
-  }
-  .comparison {
-    position:absolute; left:320px; top:840px;
-    font-size:20px; font-weight:500; color:#FF5A32;
-    line-height:1.35; letter-spacing:-0.011em;
-    font-variant-numeric: tabular-nums lining-nums;
-  }
+  .marker { position:absolute; }
   .footer { position:absolute; left:0; top:982px; width:1920px; height:98px; }
   .footer .logo { position:absolute; left:100px; top:36px; width:110px; height:auto; }
   .footer .page {
@@ -44,27 +33,28 @@
     font-size:16px; font-weight:500; color:rgba(255,255,255,0.8);
     font-variant-numeric: tabular-nums lining-nums;
   }
-  .motif-field { position:absolute; left:0; top:0; width:1920px; height:1080px; overflow:visible; }
 </style>
 </head>
 <body>
   <div class="stage">
-    <div class="eyebrow">Checkout Testing &middot; Round 2</div>
-    <div class="numeral">62%</div>
-    <div class="label">failed checkout</div>
-    <div class="comparison">+21 pts vs round 1</div>
+    <div class="eyebrow">Finding &middot; Checkout</div>
+    <div class="statement">Checkout doesn&rsquo;t fail.<br>It stops explaining<br>itself, one field<br>before the button.</div>
+
+    <svg class="marker" style="left:1750px; top:150px;" width="20" height="20">
+      <circle cx="10" cy="10" r="6" fill="none" stroke="#34FF67" stroke-width="3" opacity="0.7"/>
+    </svg>
+    <svg class="marker" style="left:1750px; top:850px;" width="20" height="20">
+      <line x1="2.8" y1="2.8" x2="17.2" y2="17.2" stroke="#34FF67" stroke-width="2.8" opacity="0.7"/>
+      <line x1="17.2" y1="2.8" x2="2.8" y2="17.2" stroke="#34FF67" stroke-width="2.8" opacity="0.7"/>
+    </svg>
+
     <div class="footer">
-      <img class="logo" src="../../logo/colab-wordmark-electric-green.svg" alt="colab.">
-      <div class="page">02</div>
+      <img class="logo" src="../../../logo/colab-wordmark-electric-green.svg" alt="colab.">
+      <div class="page">17</div>
     </div>
-    <div class="motif-field" id="field"></div>
   </div>
-  <script src="../../motif/motif.js"></script>
   <script>
     document.fonts.ready.then(function () {
-      ColabMotif.renderDitherField(document.getElementById('field'),
-        { x: 1640, y: 120, w: 280, h: 780 },
-        { dir: 'right', targetFill: 0.22, color: '#34FF67', opacity: 0.55, seed: 2, markerEvery: 9 });
       document.body.setAttribute('data-ready', '1');
     });
   </script>

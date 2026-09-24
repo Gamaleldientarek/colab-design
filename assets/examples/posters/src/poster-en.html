@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Poster P1 — EN, Open Lab Day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:2480px; height:3508px; overflow:hidden; }
+  body {
+    position:relative;
+    width:2480px; height:3508px;
+    background:#103A21; /* Pine Green ground */
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .stage { position:absolute; inset:0; }
+  .motif-field { position:absolute; inset:0; width:2480px; height:3508px; }
+
+  /* Type zone: y1400-3260, x120-2360 (C1-C6), left-aligned to C1 */
+  .eyebrow {
+    position:absolute; left:120px; top:1400px;
+    font-size:24px; line-height:1.35; font-weight:500;
+    color:#34FF67; text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .headline {
+    position:absolute; left:120px; top:1473px; width:1900px;
+    font-size:200px; font-weight:900; color:#FFFFFF;
+    line-height:0.90; letter-spacing:-0.025em;
+  }
+  .headline span { display:block; }
+  .support {
+    position:absolute; left:120px; top:1893px; width:1360px;
+    font-size:28px; font-weight:400; line-height:1.35;
+    color:rgba(255,255,255,0.8); letter-spacing:-0.016em;
+  }
+  .details {
+    position:absolute; left:120px; top:1998px;
+    font-size:22px; font-weight:500; line-height:1.35;
+    color:rgba(255,255,255,0.8); letter-spacing:-0.014em;
+    font-variant-numeric: tabular-nums;
+  }
+  .cta {
+    position:absolute; left:120px; top:2070px;
+    font-size:24px; font-weight:600; line-height:1.35;
+    color:#34FF67; letter-spacing:-0.014em;
+  }
+  .logo { position:absolute; left:120px; top:3101px; width:380px; height:auto; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="motif-field" id="field"></div>
+
+    <div class="eyebrow">Open Lab Day</div>
+    <div class="headline"><span>Step Behind</span><span>The Glass.</span></div>
+    <div class="support">Sit in on a live usability session, meet the research team, and see how a study comes together end to end.</div>
+    <div class="details">Thursday 12 November &middot; 10:00&ndash;13:00 &middot; Colab Studio, Riyadh</div>
+    <div class="cta">RSVP at colab.example/openlab</div>
+
+    <img class="logo" src="../../../logo/colab-wordmark-plus-tagline-en-white.svg" alt="colab. — user experience laboratory">
+  </div>
+  <script src="../../../motif/motif.js"></script>
+  <script>
+    document.fonts.ready.then(function () {
+      window.__field = ColabMotif.renderDitherField(document.getElementById('field'),
+        { x: 1260, y: 160, w: 1100, h: 1200 },
+        {
+          dir: 'top-right', a: 0.70, extendPastEdge: 0.35,
+          color: '#34FF67', opacity: 1, seed: 101,
+          maxMarkers: 1, markerShape: 'ring'
+        });
+      document.body.setAttribute('data-ready', '1');
+    });
+  </script>
+</body>
+</html>

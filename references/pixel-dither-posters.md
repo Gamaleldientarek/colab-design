@@ -148,6 +148,8 @@ If the poster is destined for riso or screen print rather than a digital export,
 
 ## 9. Example poster compositions
 
+P1 and P2 are rendered in `assets/examples/posters/` (sources in `src/`, built with `assets/motif/motif.js`); the specs below are what those renders implement.
+
 Four compositions, given as specs — coordinates on the A4 grid (§2), not finished artwork. Each is one instance of the fixed template (§4).
 
 ### 9.1 P1 — EN statement poster, dark ground

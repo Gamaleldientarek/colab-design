@@ -28,6 +28,21 @@ Six slides built to the skill's rules: the grid, vertical anchors, the four grou
 | ![Electric flood divider with Deep Jade text](assets/examples/05-divider.png) | ![Slide 3 mirrored for Arabic](assets/examples/06-arabic-mirror.png) |
 | **5. Divider.** Archetype 2, Electric flood, Deep Jade text, motif clear of every text box | **6. Arabic mirror.** Slide 3 through `x' = 1920 − x − w`, Arabic lockup, motif re-solved |
 
+## Example posters
+
+The A4 dither poster, built on the poster grid in [`references/pixel-dither-posters.md`](references/pixel-dither-posters.md) (2480 × 3508 px at 300 dpi, 6 columns × 340 px, field zone in a top corner, type zone below). English and its Arabic mirror; the Arabic field is solved again, not flipped. Full-resolution files sit beside the previews in `assets/examples/posters/`.
+
+| | |
+|---|---|
+| ![English dither A4 poster on Pine with an Electric field top-right](assets/examples/posters/poster-en-preview.png) | ![Arabic dither A4 poster, field top-left, right-aligned Alexandria](assets/examples/posters/poster-ar-preview.png) |
+| **P1. English poster.** §9.1: Pine ground, field top-right, one accent marker | **P2. Arabic mirror.** §9.2: field re-solved top-left, Arabic lockup, numerals left-to-right |
+
+## The newer archetypes
+
+One slide for each of archetypes 15 to 22, built to the current rules (no Electric on light grounds, no content-slide motif while Q-9 is open). Sources in `assets/examples/archetypes/src/`.
+
+![Eight example slides for archetypes 15 to 22](assets/examples/archetypes/strip.png)
+
 ## Answers the skill gives
 
 The assets it works with are real files in this repository:

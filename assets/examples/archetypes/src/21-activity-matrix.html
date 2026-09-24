@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>21 — Activity Matrix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1920px; height:1080px; overflow:hidden; }
+  body {
+    position:relative; width:1920px; height:1080px;
+    background:#103A21; /* Pine ground */
+    font-family:'Inter', sans-serif; -webkit-font-smoothing:antialiased;
+  }
+  .stage { position:absolute; inset:0; }
+  .eyebrow {
+    position:absolute; left:100px; top:120px;
+    font-size:24px; line-height:1.2; font-weight:500;
+    color:#34FF67; text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .title {
+    position:absolute; left:100px; top:168px; width:1400px;
+    font-size:60px; font-weight:700; color:#FFFFFF;
+    line-height:0.95; letter-spacing:-0.022em;
+  }
+  .cell { position:absolute; }
+  .cell .icon { color:#34FF67; }
+  .cell .heading {
+    position:absolute; top:48px; left:0; width:360px;
+    font-size:24px; font-weight:600; color:#FFFFFF; letter-spacing:-0.014em;
+  }
+  .cell .task {
+    position:absolute; left:0; width:360px;
+    font-size:16px; font-weight:400; color:rgba(255,255,255,0.8); letter-spacing:-0.011em;
+  }
+  .cell .task .dot { display:inline-block; width:6px; height:6px; background:#34FF67; margin-right:12px; vertical-align:middle; }
+  .cell .impact {
+    position:absolute; top:184px; left:0; width:360px;
+    display:flex; align-items:center;
+    font-size:20px; font-weight:700; color:#FFFFFF; letter-spacing:-0.017em;
+  }
+  .cell .impact .mark { display:inline-block; flex:0 0 auto; width:10px; height:10px; background:#FF5A32; margin-right:10px; }
+  .cell .tag {
+    position:absolute; top:228px; left:0; height:24px; padding:0 12px;
+    display:inline-flex; align-items:center; white-space:nowrap;
+    background:#34FF67; color:#011E14;
+    font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase;
+  }
+  .footer { position:absolute; left:0; top:982px; width:1920px; height:98px; }
+  .footer .logo { position:absolute; left:100px; top:36px; width:110px; height:auto; }
+  .footer .page {
+    position:absolute; right:100px; top:40px;
+    font-size:16px; font-weight:500; color:rgba(255,255,255,0.8);
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="eyebrow">Operational Summary</div>
+    <div class="title">Checkout Workstreams, By Priority</div>
+
+    <!-- Row 1: four 2-column cells -->
+    <div class="cell" style="left:100px; top:380px;">
+      <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M17 17L21 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19C15.4183 19 19 15.4183 19 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
+      <div class="heading">Search</div>
+      <div class="task" style="top:92px;"><span class="dot"></span>Add synonym matching</div>
+      <div class="task" style="top:118px;"><span class="dot"></span>Surface zero-result recovery</div>
+      <div class="task" style="top:144px;"><span class="dot"></span>Tune relevance ranking</div>
+      <div class="impact"><span class="mark"></span>62% of abandons start here</div>
+      <div class="tag">Design + Data</div>
+    </div>
+
+    <div class="cell" style="left:540px; top:380px;">
+      <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z" stroke="currentColor" stroke-width="1.5"/><path d="M2.00019 12.0504C1.96622 11.0147 6.45448 8.57937 6.87722 9.06275C7.3566 9.61089 6.21047 11.2397 5.95232 11.7584C5.79708 12.0703 5.80134 12.2056 5.97785 12.5172C6.77726 13.9283 7.17382 14.6313 6.92737 14.9352C6.53453 15.4197 2.03334 13.0611 2.00019 12.0504Z" stroke="currentColor" stroke-width="1.5"/><path d="M11.9496 21.9997C12.9853 22.0337 15.4206 17.5454 14.9373 17.1227C14.3891 16.6433 12.7603 17.7894 12.2416 18.0476C11.9297 18.2028 11.7944 18.1985 11.4828 18.022C10.0717 17.2226 9.36869 16.8261 9.06478 17.0725C8.58035 17.4653 10.9389 21.9665 11.9496 21.9997Z" stroke="currentColor" stroke-width="1.5"/><path d="M21.9998 12.0504C22.0338 11.0147 17.5455 8.57937 17.1228 9.06275C16.6434 9.61089 17.7895 11.2397 18.0477 11.7584C18.2029 12.0703 18.1987 12.2056 18.0221 12.5172C17.2227 13.9283 16.8262 14.6313 17.0726 14.9352C17.4655 15.4197 21.9667 13.0611 21.9998 12.0504Z" stroke="currentColor" stroke-width="1.5"/><path d="M11.9496 2.00007C12.9853 1.9661 15.4206 6.45436 14.9373 6.8771C14.3891 7.35648 12.7603 6.21035 12.2416 5.9522C11.9297 5.79696 11.7944 5.80121 11.4828 5.97773C10.0717 6.77714 9.36869 7.1737 9.06478 6.92725C8.58035 6.53441 10.9389 2.03322 11.9496 2.00007Z" stroke="currentColor" stroke-width="1.5"/></svg>
+      <div class="heading">Navigation</div>
+      <div class="task" style="top:92px;"><span class="dot"></span>Fix filter reset on back</div>
+      <div class="task" style="top:118px;"><span class="dot"></span>Persist scroll position</div>
+      <div class="task" style="top:144px;"><span class="dot"></span>Simplify category depth</div>
+      <div class="impact"><span class="mark"></span>18% higher re-entry rate</div>
+      <div class="tag">Frontend</div>
+    </div>
+
+    <div class="cell" style="left:980px; top:380px;">
+      <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M10.5 20.25C10.5 20.6642 10.1642 21 9.75 21C9.33579 21 9 20.6642 9 20.25C9 19.8358 9.33579 19.5 9.75 19.5C10.1642 19.5 10.5 19.8358 10.5 20.25Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M19 20.25C19 20.6642 18.6642 21 18.25 21C17.8358 21 17.5 20.6642 17.5 20.25C17.5 19.8358 17.8358 19.5 18.25 19.5C18.6642 19.5 19 19.8358 19 20.25Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M2 3H2.20664C3.53124 3 4.19354 3 4.6255 3.40221C5.05746 3.80441 5.10464 4.46503 5.19902 5.78626L5.45035 9.30496C5.5924 11.2936 5.66342 12.2879 5.96476 13.0961C6.62531 14.8677 8.08229 16.2244 9.89648 16.757C10.7241 17 11.7267 17 13.7317 17C15.8373 17 16.89 17 17.7417 16.7416C19.6593 16.1599 21.1599 14.6593 21.7416 12.7417C22 11.89 22 10.8433 22 8.75C22 8.05222 22 7.70333 21.9139 7.41943C21.72 6.78023 21.2198 6.28002 20.5806 6.08612C20.2967 6 19.9478 6 19.25 6H5.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M16 10V13M11 10V13" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
+      <div class="heading">Cart</div>
+      <div class="task" style="top:92px;"><span class="dot"></span>Show tax before checkout</div>
+      <div class="task" style="top:118px;"><span class="dot"></span>Allow inline quantity edits</div>
+      <div class="task" style="top:144px;"><span class="dot"></span>Warn on stock changes</div>
+      <div class="impact"><span class="mark"></span>9% of edits fail silently</div>
+      <div class="tag">Product</div>
+    </div>
+
+    <div class="cell" style="left:1420px; top:380px;">
+      <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M11 6L21 6" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M11 12L21 12" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M11 18L21 18" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/><path d="M3 7.39286C3 7.39286 4 8.04466 4.5 9C4.5 9 6 5.25 8 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M3 18.3929C3 18.3929 4 19.0447 4.5 20C4.5 20 6 16.25 8 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
+      <div class="heading">Checkout</div>
+      <div class="task" style="top:92px;"><span class="dot"></span>Expose guest checkout</div>
+      <div class="task" style="top:118px;"><span class="dot"></span>Explain form errors inline</div>
+      <div class="task" style="top:144px;"><span class="dot"></span>Reduce required fields</div>
+      <div class="impact"><span class="mark"></span>42% of drop-off happens here</div>
+      <div class="tag">Product + UX</div>
+    </div>
+
+    <!-- Row 2: two 4-column cells -->
+    <div class="cell" style="left:100px; top:690px;">
+      <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M2 12C2 8.46252 2 6.69377 3.0528 5.5129C3.22119 5.32403 3.40678 5.14935 3.60746 4.99087C4.86213 4 6.74142 4 10.5 4H13.5C17.2586 4 19.1379 4 20.3925 4.99087C20.5932 5.14935 20.7788 5.32403 20.9472 5.5129C22 6.69377 22 8.46252 22 12C22 15.5375 22 17.3062 20.9472 18.4871C20.7788 18.676 20.5932 18.8506 20.3925 19.0091C19.1379 20 17.2586 20 13.5 20H10.5C6.74142 20 4.86213 20 3.60746 19.0091C3.40678 18.8506 3.22119 18.676 3.0528 18.4871C2 17.3062 2 15.5375 2 12Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M10 16H11.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M14.5 16L18 16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M2 9H22" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5"/></svg>
+      <div class="heading">Payments</div>
+      <div class="task" style="top:92px;"><span class="dot"></span>Add card-error messaging</div>
+      <div class="task" style="top:118px;"><span class="dot"></span>Support wallet checkout</div>
+      <div class="task" style="top:144px;"><span class="dot"></span>Retry failed charges automatically</div>
+      <div class="impact"><span class="mark"></span>38% of charges show no error</div>
+      <div class="tag">Engineering</div>
+    </div>
+
+    <div class="cell" style="left:980px; top:690px;">
+      <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M2.5 7.5V13.5C2.5 17.2712 2.5 19.1569 3.67157 20.3284C4.84315 21.5 6.72876 21.5 10.5 21.5H12M21.5 12V7.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M3.86909 5.31461L2.5 7.5H21.5L20.2478 5.41303C19.3941 3.99021 18.9673 3.2788 18.2795 2.8894C17.5918 2.5 16.7621 2.5 15.1029 2.5H8.95371C7.32998 2.5 6.51812 2.5 5.84013 2.8753C5.16215 3.2506 4.73113 3.93861 3.86909 5.31461Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M12 7.5V2.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M10 10.5H14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M16 17V15.5C16 14.3954 16.8954 13.5 18 13.5C19.1046 13.5 20 14.3954 20 15.5V17" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><path d="M20 17H16C15.1716 17 14.5 17.6716 14.5 18.5V20C14.5 20.8284 15.1716 21.5 16 21.5H20C20.8284 21.5 21.5 20.8284 21.5 20V18.5C21.5 17.6716 20.8284 17 20 17Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></svg>
+      <div class="heading">Confirmation</div>
+      <div class="task" style="top:92px;"><span class="dot"></span>Send immediate confirmation</div>
+      <div class="task" style="top:118px;"><span class="dot"></span>Add an order-status page</div>
+      <div class="task" style="top:144px;"><span class="dot"></span>Enable one-tap reorder</div>
+      <div class="impact"><span class="mark"></span>6% contact support after purchase</div>
+      <div class="tag">Engineering + CX</div>
+    </div>
+
+    <div class="footer">
+      <img class="logo" src="../../../logo/colab-wordmark-electric-green.svg" alt="colab.">
+      <div class="page">21</div>
+    </div>
+  </div>
+  <script>
+    document.fonts.ready.then(function () {
+      document.body.setAttribute('data-ready', '1');
+    });
+  </script>
+</body>
+</html>

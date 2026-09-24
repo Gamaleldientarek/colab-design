@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Poster P2 — AR mirror of P1, Open Lab Day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Alexandria:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:2480px; height:3508px; overflow:hidden; }
+  body {
+    position:relative;
+    width:2480px; height:3508px;
+    background:#103A21; /* Pine Green ground — unchanged, a controlled A/B against P1 */
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .stage { position:absolute; inset:0; }
+  .motif-field { position:absolute; inset:0; width:2480px; height:3508px; }
+
+  .ar { font-family:'Alexandria', sans-serif; direction:rtl; unicode-bidi:isolate; letter-spacing:0; text-align:right; }
+  .num { font-family:'Inter', sans-serif; direction:ltr; unicode-bidi:embed; }
+
+  /* Type zone: same y-range as P1 (160-3260 boundary unchanged, vertical
+     never mirrors), right-aligned to C6 (x2360 = canvas 2480 - 120 margin) */
+  .eyebrow {
+    position:absolute; right:120px; top:1400px;
+    font-size:24px; line-height:1.5; font-weight:500;
+    color:#34FF67;
+  }
+  .headline {
+    position:absolute; right:120px; top:1476px; width:1900px;
+    font-size:200px; font-weight:900; color:#FFFFFF;
+    line-height:1.5; /* Arabic collision floor, SKILL.md — never shrink to recover EN's ×0.90 */
+  }
+  .headline span { display:block; }
+  .support {
+    position:absolute; right:120px; top:2126px; width:1500px;
+    font-size:28px; font-weight:400; line-height:1.5;
+    color:rgba(255,255,255,0.8);
+  }
+  .details {
+    position:absolute; right:120px; top:2231px;
+    font-size:22px; font-weight:500; line-height:1.5;
+    color:rgba(255,255,255,0.8);
+  }
+  .details .num { font-variant-numeric: tabular-nums; }
+  .cta {
+    position:absolute; right:120px; top:2303px;
+    font-size:24px; font-weight:600; line-height:1.5;
+    color:#34FF67;
+  }
+  .logo { position:absolute; right:120px; top:3092px; width:380px; height:auto; }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="motif-field" id="field"></div>
+
+    <div class="eyebrow ar">يوم المختبر المفتوح</div>
+    <div class="headline ar"><span>خطوة خلف</span><span>الزجاج</span></div>
+    <div class="support ar">احضروا جلسة اختبار حيّة، تعرّفوا على فريق البحث، وشاهدوا كيف تتشكّل الدراسة خطوة بخطوة.</div>
+    <div class="details ar">الخميس، <span class="num">12</span> نوفمبر &middot; <span class="num">10:00-13:00</span> &middot; استوديو كولاب، الرياض</div>
+    <div class="cta ar">سجّلوا عبر <span class="num">colab.example/openlab</span></div>
+
+    <img class="logo" src="../../../logo/colab-wordmark-plus-tagline-ar-white.svg" alt="كولاب — مختبر تجربة المستخدم">
+  </div>
+  <script src="../../../motif/motif.js"></script>
+  <script>
+    document.fonts.ready.then(function () {
+      // Re-solved per pixel-dither-posters.md §6 / rtl-arabic.md §8 — same
+      // p(u) family, a fresh seed, never a mirror of the EN field. The
+      // field zone box itself already mirrors by construction (x120-1220
+      // = 2480 - 1260 - 1100, matching P1's x1260-2360 field zone).
+      window.__field = ColabMotif.renderDitherField(document.getElementById('field'),
+        { x: 120, y: 160, w: 1100, h: 1200 },
+        {
+          dir: 'top-left', a: 0.70, extendPastEdge: 0.35,
+          color: '#34FF67', opacity: 1, seed: 102,
+          maxMarkers: 1, markerShape: 'ring'
+        });
+      document.body.setAttribute('data-ready', '1');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>22 — Notice Slide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1920px; height:1080px; overflow:hidden; }
+  body {
+    position:relative; width:1920px; height:1080px;
+    background:#011E14; /* Deep Jade ground */
+    font-family:'Inter', sans-serif; -webkit-font-smoothing:antialiased;
+  }
+  .stage { position:absolute; inset:0; }
+  .heading {
+    position:absolute; left:100px; top:700px; width:400px;
+    font-size:24px; font-weight:600; color:#34FF67;
+    text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .body {
+    position:absolute; left:100px; top:748px; width:400px;
+    font-size:20px; font-weight:400; color:rgba(255,255,255,0.8);
+    line-height:1.35; letter-spacing:-0.017em;
+  }
+  .footer { position:absolute; left:0; top:982px; width:1920px; height:98px; }
+  .footer .logo { position:absolute; left:100px; top:36px; width:110px; height:auto; }
+  .footer .page {
+    position:absolute; right:100px; top:40px;
+    font-size:16px; font-weight:500; color:rgba(255,255,255,0.8);
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="heading">Confidentiality</div>
+    <div class="body">Findings in this report are shared under NDA with the study sponsor only.</div>
+
+    <div class="footer">
+      <img class="logo" src="../../../logo/colab-wordmark-electric-green.svg" alt="colab.">
+      <div class="page">22</div>
+    </div>
+  </div>
+  <script>
+    document.fonts.ready.then(function () {
+      document.body.setAttribute('data-ready', '1');
+    });
+  </script>
+</body>
+</html>

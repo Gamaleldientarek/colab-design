@@ -51,6 +51,7 @@ Stop if any command fails, and do not overwrite an existing folder. For Codex, u
 - **Layouts:** 22 archetypes and 36 measured slides ([slide library](references/slide-library.md), [report template](references/report-template.md))
 - **Motif:** the 20 px pixel and dither field, kept to the edges and never under text ([layouts §4](references/layout-archetypes.md))
 - **Arabic / RTL:** mirroring, auto-layout, bidi and verification ([rtl-arabic](references/rtl-arabic.md))
+- **Code:** ready tokens in CSS, JS and JSON, and the dither engine ([tokens](assets/tokens/README.md), [motif engine](assets/motif/README.md))
 - **Icons and assets:** Hugeicons Stroke Rounded, logos and shapes ([icons](references/icons.md), [logo and shapes](references/logo-and-shapes.md))
 - **Client law:** standing decisions C-01 to C-17 ([decision law](references/decision-law.md))
 
